@@ -20,12 +20,14 @@ public class FirstUniqueCharacterInAString {
 
     public int firstUniqChar(String s) {
 
-        int freq[] = new int[26];
+        int[] freq = new int[26];
 
+        //对每个字符进行频次计数
         for (int i = 0; i < s.length(); i++) {
 
             freq[s.charAt(i) - 'a']++;
         }
+        //查找频次为1的返回
         for (int i = 0; i < s.length(); i++) {
             if (freq[s.charAt(i) - 'a'] == 1) {
                 return i;
