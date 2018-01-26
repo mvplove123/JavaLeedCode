@@ -1,5 +1,6 @@
-package amazon;
+package amazon.easy;
 
+import amazon.easy.FirstUniqueCharacterInAString;
 import org.junit.Assert;
 import org.junit.Test;
 

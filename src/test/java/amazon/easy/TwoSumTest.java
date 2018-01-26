@@ -1,6 +1,7 @@
-package amazon;
+package amazon.easy;
 
 
+import amazon.easy.TwoSum;
 import org.junit.Assert;
 import org.junit.Test;
 

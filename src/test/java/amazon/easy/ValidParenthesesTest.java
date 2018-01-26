@@ -1,5 +1,6 @@
-package amazon;
+package amazon.easy;
 
+import amazon.easy.ValidParentheses;
 import org.junit.Assert;
 import org.junit.Test;
 
