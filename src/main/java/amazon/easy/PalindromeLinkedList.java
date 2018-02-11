@@ -23,7 +23,7 @@ public class PalindromeLinkedList {
             fast = fast.next.next;
             slow = slow.next;
         }
-
+        //Á´±í·´×ª
         slow = reverse(slow);
 
         while(head!=null && slow!=null)

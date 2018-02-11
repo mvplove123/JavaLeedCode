@@ -20,7 +20,7 @@ package amazon.easy;
 /**
  * Definition for a binary tree node.
  */
-class TreeNode {
+ class TreeNode {
     int val;
     TreeNode left;
     TreeNode right;
