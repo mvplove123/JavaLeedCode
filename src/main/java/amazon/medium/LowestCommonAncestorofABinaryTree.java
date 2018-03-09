@@ -1,7 +1,7 @@
 package amazon.medium;
 
 /**
- * Created by admin on 2018/2/7.
+ * 236 Created by admin on 2018/2/7.
  * <p/>
  * Given a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree.
  * <p/>
@@ -30,9 +30,13 @@ class TreeNode {
     }
 }
 
+/**
+ * 采用后序遍历，左右根
+ */
 public class LowestCommonAncestorofABinaryTree {
 
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        //判断边界条件
         if (root == null || root == p || root == q) {
             return root;
         }

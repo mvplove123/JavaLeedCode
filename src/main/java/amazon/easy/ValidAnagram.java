@@ -25,15 +25,15 @@ public class ValidAnagram {
 
 
         int[] alphabets = new int[26];
-
+        //对子串每一个字符进行次数累加计数
         for(int i=0;i<s.length();i++){
             alphabets[s.charAt(i)-'a']++;
         }
-
+        //对目标串进行次数累减计数
         for(int j=0;j<t.length();j++){
             alphabets[t.charAt(j)-'a']--;
         }
-
+        //循环，判断是否有非0次的，如果有则不包含，没有则包含
         for(int i=0;i<alphabets.length;i++){
             if(alphabets[i]!=0){
                 return false;
