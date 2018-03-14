@@ -28,7 +28,7 @@ public class TwoSum {
 
             if (numsMap.containsKey(other)) {
                 int position = numsMap.get(other);
-                return new int[]{position,i};
+                return new int[]{position, i};
             } else {
                 numsMap.put(nums[i], i);
             }

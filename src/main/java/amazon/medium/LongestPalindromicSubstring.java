@@ -18,6 +18,8 @@ package amazon.medium;
  * Input: "cbbd"
  * <p/>
  * Output: "bb"
+ * <p/>
+ * 可以用dp做，二维数组；也可以用中心扩散法，左右扩散（考虑奇数偶数形式）
  */
 public class LongestPalindromicSubstring {
     String res = "";

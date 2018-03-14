@@ -2,7 +2,8 @@ package amazon.medium;
 
 /**
  * 138 Created by admin on 2018/2/6.
- * A linked list is given such that each node contains an additional random pointer which could point to any node in the list or null.
+ * A linked list is given such that each node contains an additional random pointer which could point to any node in
+ * the list or null.
  * <p/>
  * Return a deep copy of the list.
  */

@@ -2,7 +2,8 @@ package amazon.easy;
 
 /**
  * Created by admin on 2018/1/27.
- * Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.
+ * Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the
+ * nodes of the first two lists.
  * <p/>
  * Example:
  * <p/>

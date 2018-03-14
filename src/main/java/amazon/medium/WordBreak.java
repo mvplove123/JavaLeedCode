@@ -5,7 +5,9 @@ import java.util.List;
 /**
  * Created by admin on 2018/3/5.
  * 139 Word Break
- * Given a non-empty string s and a dictionary wordDict containing a list of non-empty words, determine if s can be segmented into a space-separated sequence of one or more dictionary words. You may assume the dictionary does not contain duplicate words.
+ * Given a non-empty string s and a dictionary wordDict containing a list of non-empty words, determine if s can be
+ * segmented into a space-separated sequence of one or more dictionary words. You may assume the dictionary does not
+ * contain duplicate words.
  * <p/>
  * For example, given
  * s = "leetcode",
@@ -14,7 +16,8 @@ import java.util.List;
  * Return true because "leetcode" can be segmented as "leet code".
  * <p/>
  * UPDATE (2017/1/4):
- * The wordDict parameter had been changed to a list of strings (instead of a set of strings). Please reload the code definition to get the latest changes.
+ * The wordDict parameter had been changed to a list of strings (instead of a set of strings). Please reload the code
+ * definition to get the latest changes.
  * l e e t c o d e
  */
 

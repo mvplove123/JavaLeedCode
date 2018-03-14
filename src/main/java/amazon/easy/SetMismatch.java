@@ -5,9 +5,12 @@ import java.util.Set;
 
 /**
  * 645 Created by admin on 2018/2/2.
- * The set S originally contains numbers from 1 to n. But unfortunately, due to the data error, one of the numbers in the set got duplicated to another number in the set, which results in repetition of one number and loss of another number.
+ * The set S originally contains numbers from 1 to n. But unfortunately, due to the data error, one of the numbers in
+ * the set got duplicated to another number in the set, which results in repetition of one number and loss of another
+ * number.
  * <p/>
- * Given an array nums representing the data status of this set after the error. Your task is to firstly find the number occurs twice and then find the number that is missing. Return them in the form of an array.
+ * Given an array nums representing the data status of this set after the error. Your task is to firstly find the
+ * number occurs twice and then find the number that is missing. Return them in the form of an array.
  * <p/>
  * Example 1:
  * Input: nums = [1,2,2,4]
@@ -15,8 +18,8 @@ import java.util.Set;
  * Note:
  * The given array size will in the range [2, 10000].
  * The given array's numbers won't have any order.
- *
- *
+ * <p/>
+ * <p/>
  * [1,2,3,4] 求和 =10
  * [1,2,2,4] 求和 = 9，重复数字2
  * [1,2,4] 的值 = 9-2
@@ -32,7 +35,7 @@ public class SetMismatch {
         Set<Integer> nonDuplicate = new HashSet<>();
         int currentSum = 0;
         //hashset筛选重复数据，同时实际累计求和
-        for (int i:nums) {
+        for (int i : nums) {
             if (nonDuplicate.contains(i)) {
                 duplicatNum = i;
             }

@@ -31,7 +31,9 @@ import java.util.Stack;
  */
 
 public class MinStack {
-    /** initialize your data structure here. */
+    /**
+     * initialize your data structure here.
+     */
     public MinStack() {
 
     }
@@ -52,9 +54,9 @@ public class MinStack {
 
     public void push(int x) {
 
-        final int min = (stack.isEmpty())?x:Math.min(stack.peek().min,x);
+        final int min = (stack.isEmpty()) ? x : Math.min(stack.peek().min, x);
 
-        stack.push(new Element(x,min));
+        stack.push(new Element(x, min));
 
     }
 

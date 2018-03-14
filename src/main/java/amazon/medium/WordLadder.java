@@ -7,7 +7,8 @@ import java.util.Queue;
 
 /**
  * 127 Created by admin on 2018/2/8.
- * Given two words (beginWord and endWord), and a dictionary's word list, find the length of shortest transformation sequence from beginWord to endWord, such that:
+ * Given two words (beginWord and endWord), and a dictionary's word list, find the length of shortest transformation
+ * sequence from beginWord to endWord, such that:
  * <p/>
  * Only one letter can be changed at a time.
  * Each transformed word must exist in the word list. Note that beginWord is not a transformed word.
@@ -27,10 +28,10 @@ import java.util.Queue;
  * You may assume no duplicates in the word list.
  * You may assume beginWord and endWord are non-empty and are not the same.
  * UPDATE (2017/1/20):
- * The wordList parameter had been changed to a list of strings (instead of a set of strings). Please reload the code definition to get the latest changes.
-
- 采用BFS算法（通常用队列实现）
-
+ * The wordList parameter had been changed to a list of strings (instead of a set of strings). Please reload the code
+ * definition to get the latest changes.
+ * <p/>
+ * 采用BFS算法（通常用队列实现）
  */
 public class WordLadder {
     public int ladderLength(String beginWord, String endWord, List<String> wordList) {

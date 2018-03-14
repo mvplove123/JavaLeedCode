@@ -4,7 +4,8 @@ import java.util.Stack;
 
 /**
  * Created by admin on 2018/1/18.
- * Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+ * Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is
+ * valid.
  * <p/>
  * The brackets must close in the correct order, "()" and "()[]{}" are all valid but "(]" and "([)]" are not.
  */

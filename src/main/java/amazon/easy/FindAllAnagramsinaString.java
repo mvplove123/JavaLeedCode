@@ -8,7 +8,8 @@ import java.util.List;
  * Created by admin on 2018/1/18.
  * Given a string s and a non-empty string p, find all the start indices of p's anagrams in s.
  * <p/>
- * Strings consists of lowercase English letters only and the length of both strings s and p will not be larger than 20,100.
+ * Strings consists of lowercase English letters only and the length of both strings s and p will not be larger than
+ * 20,100.
  * <p/>
  * The order of output does not matter.
  * <p/>

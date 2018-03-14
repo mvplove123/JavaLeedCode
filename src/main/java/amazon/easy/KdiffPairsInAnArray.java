@@ -7,7 +7,9 @@ import java.util.Map;
 
 /**
  * 532 Created by admin on 2018/2/5.
- * Given an array of integers and an integer k, you need to find the number of unique k-diff pairs in the array. Here a k-diff pair is defined as an integer pair (i, j), where i and j are both numbers in the array and their absolute difference is k.
+ * Given an array of integers and an integer k, you need to find the number of unique k-diff pairs in the array. Here
+ * a k-diff pair is defined as an integer pair (i, j), where i and j are both numbers in the array and their absolute
+ * difference is k.
  * <p/>
  * Example 1:
  * Input: [3, 1, 4, 1, 5], k = 2
@@ -47,7 +49,7 @@ public class KdiffPairsInAnArray {
                 if (entry.getValue() >= 2) {
                     count++;
                 }
-            //k不等于0，则当前的key+k是否存在map集合里，有则累加
+                //k不等于0，则当前的key+k是否存在map集合里，有则累加
             } else {
                 if (map.containsKey(entry.getKey() + k)) {
                     count++;
