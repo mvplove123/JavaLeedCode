@@ -42,20 +42,20 @@ public class SolveTheEquation {
         String[] part = equation.split("=");
         int[] leftPart = evaluate(part[0]);
         int[] rightPart = evaluate(part[1]);
-        //ÏµÊıÏàÍ¬£¬³£Á¿ÏàÍ¬
+        //ç³»æ•°ç›¸åŒï¼Œå¸¸é‡ç›¸åŒ
         if (leftPart[0] == rightPart[0] && leftPart[1] == rightPart[1]) {
             return "Infinite solutions";
-            //ÏµÊıÏàÍ¬£¬³£Á¿²»ÏàÍ¬
+            //ç³»æ•°ç›¸åŒï¼Œå¸¸é‡ä¸ç›¸åŒ
         } else if (leftPart[0] == rightPart[0]) {
             return "No solution";
         }
-        //³£Á¿²îÖµ/ÏµÊı²îÖµ
+        //å¸¸é‡å·®å€¼/ç³»æ•°å·®å€¼
         return "x=" + (rightPart[1] - leftPart[1]) / (leftPart[0] - rightPart[0]);
 
     }
 
     /**
-     * ÌáÈ¡xÏµÊıºÍ³£Á¿
+     * æå–xç³»æ•°å’Œå¸¸é‡
      *
      * @param part
      * @return
@@ -67,16 +67,16 @@ public class SolveTheEquation {
         int[] res = new int[2];
 
         for (String token : tokens) {
-            //ÌáÈ¡ÕıÏµÊı
+            //æå–æ­£ç³»æ•°
             if (token.equals("+x") || token.equals("x")) {
                 res[0]++;
-                //ÌáÈ¡¸ºÏµÊı
+                //æå–è´Ÿç³»æ•°
             } else if (token.equals("-x")) {
                 res[0]--;
-                //ÌáÈ¡ÔÚÊ×²¿µÄÕıÏµÊı
+                //æå–åœ¨é¦–éƒ¨çš„æ­£ç³»æ•°
             } else if (token.contains("x")) {
                 res[0] += Integer.parseInt(token.substring(0, token.length() - 1));
-            } else {//ÌáÈ¡³£Á¿
+            } else {//æå–å¸¸é‡
                 res[1] += Integer.parseInt(token);
             }
 

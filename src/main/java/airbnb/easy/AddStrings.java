@@ -1,4 +1,4 @@
-package airbnb;
+package airbnb.easy;
 
 /**
  * 415. Add Strings

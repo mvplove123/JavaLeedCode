@@ -20,21 +20,21 @@ import java.util.Set;
  * The given array's numbers won't have any order.
  * <p/>
  * <p/>
- * [1,2,3,4] ÇóºÍ =10
- * [1,2,2,4] ÇóºÍ = 9£¬ÖØ¸´Êı×Ö2
- * [1,2,4] µÄÖµ = 9-2
+ * [1,2,3,4] æ±‚å’Œ =10
+ * [1,2,2,4] æ±‚å’Œ = 9ï¼Œé‡å¤æ•°å­—2
+ * [1,2,4] çš„å€¼ = 9-2
  * [3] = 10-(9-2)
  */
 public class SetMismatch {
     public int[] findErrorNums(int[] nums) {
 
         int n = nums.length;
-        //Õı³£ÀÛ¼ÆÇóºÍ
+        //æ­£å¸¸ç´¯è®¡æ±‚å’Œ
         int sum = n * (n + 1) / 2;
         int duplicatNum = 0;
         Set<Integer> nonDuplicate = new HashSet<>();
         int currentSum = 0;
-        //hashsetÉ¸Ñ¡ÖØ¸´Êı¾İ£¬Í¬Ê±Êµ¼ÊÀÛ¼ÆÇóºÍ
+        //hashsetç­›é€‰é‡å¤æ•°æ®ï¼ŒåŒæ—¶å®é™…ç´¯è®¡æ±‚å’Œ
         for (int i : nums) {
             if (nonDuplicate.contains(i)) {
                 duplicatNum = i;
@@ -42,9 +42,9 @@ public class SetMismatch {
             currentSum += i;
             nonDuplicate.add(i);
         }
-        //·ÇÖØ¸´Êı¾İµÄºÍµÈÓÚÊµ¼ÊÇóºÍµÄÖµ¼õÈ¥ÖØ¸´Êı¾İµÄÖµ
+        //éé‡å¤æ•°æ®çš„å’Œç­‰äºå®é™…æ±‚å’Œçš„å€¼å‡å»é‡å¤æ•°æ®çš„å€¼
         currentSum = currentSum - duplicatNum;
-        //È±Ê§ÖµµÈÓÚÕı³£ÀÛ¼ÆÇóºÍ-·ÇÖØ¸´Êı¾İµÄºÍ
+        //ç¼ºå¤±å€¼ç­‰äºæ­£å¸¸ç´¯è®¡æ±‚å’Œ-éé‡å¤æ•°æ®çš„å’Œ
         return new int[]{duplicatNum, sum - currentSum};
     }
 }

@@ -25,22 +25,22 @@ public class SlidingWindowMaximum {
      * Therefore, return the max sliding window as [3,3,5,5,6,7].
      * <p/>
      * Note:
-     * You may assume k is always valid, ie: 1 ¡Ü k ¡Ü input array's size for non-empty array.
-     * Deque : ´æµÄÊÇindex ´Ó´óµ½Ğ¡ÅÅĞò
+     * You may assume k is always valid, ie: 1 â‰¤ k â‰¤ input array's size for non-empty array.
+     * Deque : å­˜çš„æ˜¯index ä»å¤§åˆ°å°æ’åº
      * time : O(n)
      * space : O(n)
      **/
     public int[] maxSlidingWindow(int[] nums, int k) {
 
-        //ÅĞ¶Ï±ß½çÌõ¼ş
+        //åˆ¤æ–­è¾¹ç•Œæ¡ä»¶
         if (nums == null || nums.length == 0) {
             return new int[]{0};
         }
-        //¶¨Òådeque£¬´æµÄÊÇindex ´Ó´óµ½Ğ¡ÅÅĞò
+        //å®šä¹‰dequeï¼Œå­˜çš„æ˜¯index ä»å¤§åˆ°å°æ’åº
         Deque<Integer> deque = new LinkedList<>();
-        //¶¨Òå½á¹ûÊı×é£¬³¤¶ÈÎªnums.length + 1 - k£¬
+        //å®šä¹‰ç»“æœæ•°ç»„ï¼Œé•¿åº¦ä¸ºnums.length + 1 - kï¼Œ
         int[] res = new int[nums.length + 1 - k];
-        //Ñ­»·
+        //å¾ªç¯
         for (int i = 0; i < nums.length; i++) {
 
             if (!deque.isEmpty() && deque.peekFirst() == i - k) {

@@ -23,11 +23,11 @@ import java.util.List;
  * [1,2],
  * []
  * ]
- * facebook ³£¿¼»ù´¡Ëã·¨Ìâ ¿¼µã£ºbag tracking
+ * facebook å¸¸è€ƒåŸºç¡€ç®—æ³•é¢˜ è€ƒç‚¹ï¼šbag tracking
  */
 public class Subsets {
     public List<List<Integer>> subsets(int[] nums) {
-        //±ß½çÅĞ¶Ï
+        //è¾¹ç•Œåˆ¤æ–­
         List<List<Integer>> res = new ArrayList<>();
         if (nums == null || nums.length == 0) {
             return res;
@@ -39,7 +39,7 @@ public class Subsets {
     }
 
     public void helper(List<List<Integer>> res, List<Integer> list, int[] nums, int index) {
-        //ÏÈÌí¼Ó¿ÕÖµ Ö®ºóÑ­»·£¬1 Ìí¼ÓË³Ğò 1,12,123£¬È»ºólist»ØËİÉ¾³ıÖÁ¿Õ£¬2¡¢Ìí¼ÓË³Ğò2,23£¬È»ºólist»ØËİÉ¾³ıÖÁ¿Õ£¬3 Ìí¼Ó3£¬Çå¿Õlist
+        //å…ˆæ·»åŠ ç©ºå€¼ ä¹‹åå¾ªç¯ï¼Œ1 æ·»åŠ é¡ºåº 1,12,123ï¼Œç„¶ålistå›æº¯åˆ é™¤è‡³ç©ºï¼Œ2ã€æ·»åŠ é¡ºåº2,23ï¼Œç„¶ålistå›æº¯åˆ é™¤è‡³ç©ºï¼Œ3 æ·»åŠ 3ï¼Œæ¸…ç©ºlist
         res.add(new ArrayList<>(list));
         for (int i = index; i < nums.length; i++) {
             list.add(nums[i]);

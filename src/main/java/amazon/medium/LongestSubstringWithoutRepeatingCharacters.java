@@ -16,29 +16,29 @@ import java.util.HashSet;
  * subsequence and not a substring.
  * Given "aab", the answer is "ab", with the length of 2.
  * <p/>
- * ������ɻ������ڡ�����Ժ������
- * j����㣬[j, i)�ĳ��Ⱦ�������
- * set.remove(s.charAt(j++));�൱������[j, i)��߽����һ���1����λ
- * set.add(s.charAt(i)); i++; �൱��[j, i)�ұ߽����һ���1����λ�1�3
+ * “抽象成滑动窗口”就相对好理解多
+ * j是起点，[j, i)的长度就是所求
+ * set.remove(s.charAt(j++));相当于区间[j, i)左边界向右滑动1个单位
+ * set.add(s.charAt(i)); i++; 相当于[j, i)右边界向右滑动1个单位﻿
  */
 public class LongestSubstringWithoutRepeatingCharacters {
 
     public int lengthOfLongestSubstring(String s) {
-        //�߽��ж�
+        //边界判断
         if (s == null || s.length() == 0) {
             return 0;
         }
-        //����set�����ж�
+        //运用set进行判断
         HashSet<Character> set = new HashSet<>();
-        //��󳤶ȳ�ʼ��
+        //最大长度初始化
         int res = 0;
-        //ѭ���ַ�����i������㣬j�����ظ��ַ�λ��,�����ظ���char����i��ֱ��j�ƶ����Ǹ��ظ���char��remove
+        //循环字符串，i代表起点，j代表重复字符位置,遇到重复的char不动i，直到j移动到那个重复到char并remove
         for (int i = 0, j = 0; i < s.length(); ) {
-            //set �����ַ�����Ѹ��ַ��Ƴ���j��ǰ�ƶ�1λ
+            //set 包含字符，则把该字符移除，j向前移动1位
             if (set.contains(s.charAt(i))) {
                 set.remove(s.charAt(j++));
             } else {
-                //set �������������Ӹ��ַ�����ʱ�̱Ƚϵ�ǰ��size�ͳ��ȣ�ȡ���ֵ
+                //set 不包含，则添加该字符，并时刻比较当前的size和长度，取最大值
                 set.add(s.charAt(i++));
                 res = Math.max(res, set.size());
             }

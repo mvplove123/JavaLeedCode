@@ -2,11 +2,11 @@ package amazon.easy;
 
 /**
  * Created by admin on 2018/1/29.
- * Description:¶ÔÊıÑ§¸ÅÄî¡¢±éÀú¡¢¶¯Ì¬¹æ»®µÈµÄ×ÛºÏÓ¦ÓÃ¡£ËØÊıµÄ¸ÅÄî£¬ËØÊıÖ»ÓĞ1ºÍ×ÔÉíµÄÊı
+ * Description:å¯¹æ•°å­¦æ¦‚å¿µã€éå†ã€åŠ¨æ€è§„åˆ’ç­‰çš„ç»¼åˆåº”ç”¨ã€‚ç´ æ•°çš„æ¦‚å¿µï¼Œç´ æ•°åªæœ‰1å’Œè‡ªèº«çš„æ•°
  * <p/>
  * 204 Count the number of prime numbers less than a non-negative number, n.
  * <p/>
- * ½âÌâË¼Â·£º¶îÀ­¶àÉ¸Ñ¡·¨,ÏÈ¶¨ÒåbooleanÀàĞÍÊı×é£¬¶ÔËùÓĞºÏÊı¶¼¸³Öµtrue£¬ºÏÊı¼´ÖÊÊıµÄ¶ÔÁ¢
+ * è§£é¢˜æ€è·¯ï¼šé¢æ‹‰å¤šç­›é€‰æ³•,å…ˆå®šä¹‰booleanç±»å‹æ•°ç»„ï¼Œå¯¹æ‰€æœ‰åˆæ•°éƒ½èµ‹å€¼trueï¼Œåˆæ•°å³è´¨æ•°çš„å¯¹ç«‹
  */
 public class CountPrimes {
 
@@ -17,7 +17,7 @@ public class CountPrimes {
         int count = 0;
         for (int i = 2; i < n; i++) {
 
-            //ÊÇºÏÊı²»Ö´ĞĞ
+            //æ˜¯åˆæ•°ä¸æ‰§è¡Œ
             if (notPrimes[i] == false) {
                 count++;
                 for (int j = 2; i * j < n; j++) {

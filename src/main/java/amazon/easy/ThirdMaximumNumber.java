@@ -28,32 +28,32 @@ package amazon.easy;
 public class ThirdMaximumNumber {
 
     public int thirdMax(int[] nums) {
-        //³õÊ¼»¯3¸öÊý
+        //åˆå§‹åŒ–3ä¸ªæ•°
         Integer max1 = null, max2 = null, max3 = null;
 
 
         for (Integer n : nums) {
-            //¹ýÂËÖØ¸´Êý×Ö
+            //è¿‡æ»¤é‡å¤æ•°å­—
             if (n.equals(max1) || n.equals(max2) || n.equals(max3)) {
                 continue;
             }
-            //max1ÎªnullµÄÇé¿öÏÂ£¬ÔòÉèÖÃ×î´óÖµ£¬·ñÔòÕûÌåÏòºóÒÆÎ»
+            //max1ä¸ºnullçš„æƒ…å†µä¸‹ï¼Œåˆ™è®¾ç½®æœ€å¤§å€¼ï¼Œå¦åˆ™æ•´ä½“å‘åŽç§»ä½
             if (max1 == null || n > max1) {
 
                 max3 = max2;
                 max2 = max1;
                 max1 = n;
-                //Ð¡ÓÚmax1µÄÇé¿öÏÂ£¬max2Îªnull£¬Ôòmax2ÉèÖÃ×î´óÖµ£¬max2Ö®ºóÕûÌåÏòºóÒÆÎ»
+                //å°äºŽmax1çš„æƒ…å†µä¸‹ï¼Œmax2ä¸ºnullï¼Œåˆ™max2è®¾ç½®æœ€å¤§å€¼ï¼Œmax2ä¹‹åŽæ•´ä½“å‘åŽç§»ä½
             } else if (max2 == null || n > max2) {
                 max3 = max2;
                 max2 = n;
-                //Ð¡ÓÚmax2µÄÇé¿öÏÂ£¬max3Îªnull£¬Ôòmax3ÉèÖÃ×î´óÖµ
+                //å°äºŽmax2çš„æƒ…å†µä¸‹ï¼Œmax3ä¸ºnullï¼Œåˆ™max3è®¾ç½®æœ€å¤§å€¼
             } else if (max3 == null || n > max3) {
                 max3 = n;
             }
         }
 
-        //±È½Ïmax3ºÍmax1£¬Èç¹ûmax3Îªnull£¬Ôò·µ»Ømax1 ×î´óÖµ£¬·ñÔò·µ»ØµÚÈý´óÖµmax3
+        //æ¯”è¾ƒmax3å’Œmax1ï¼Œå¦‚æžœmax3ä¸ºnullï¼Œåˆ™è¿”å›žmax1 æœ€å¤§å€¼ï¼Œå¦åˆ™è¿”å›žç¬¬ä¸‰å¤§å€¼max3
         return max3 == null ? max1 : max3;
 
     }

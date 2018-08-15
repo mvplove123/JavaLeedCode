@@ -1,6 +1,5 @@
 package airbnb.easy;
 
-import airbnb.HappyNumber;
 import org.junit.Assert;
 import org.junit.Test;
 

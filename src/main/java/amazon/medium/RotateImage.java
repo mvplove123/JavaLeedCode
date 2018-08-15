@@ -44,19 +44,19 @@ package amazon.medium;
  * [16, 7,10,11]
  * ]
  *
- * ÏÈ°´ÕÕ¶Ô½ÇÏß»¥»»Öµ£¬È»ºóÔÚ×óÓÒ¶Ô³Æ»¥»»Öµ
+ * å…ˆæŒ‰ç…§å¯¹è§’çº¿äº’æ¢å€¼ï¼Œç„¶ååœ¨å·¦å³å¯¹ç§°äº’æ¢å€¼
  */
 public class RotateImage {
 
     public void rotate(int[][] matrix) {
 
-        //ĞĞÊı£¬ÁĞÊı
+        //è¡Œæ•°ï¼Œåˆ—æ•°
         int rows = matrix.length;
         int cols = matrix[0].length;
 
-        //¶Ô½ÇÏß½»»»
+        //å¯¹è§’çº¿äº¤æ¢
         for(int i=0;i<rows;i++){
-            //Õâ²½ÖØµã£¬j=i
+            //è¿™æ­¥é‡ç‚¹ï¼Œj=i
             for(int j=i;j<cols;j++){
                 int temp = matrix[i][j];
                 matrix[i][j]=matrix[j][i];
@@ -64,7 +64,7 @@ public class RotateImage {
             }
         }
 
-        //×óÓÒ½»»»
+        //å·¦å³äº¤æ¢
         for(int i=0;i<rows;i++){
             for(int j=0;j<rows/2;j++){
                 int temp = matrix[i][j];

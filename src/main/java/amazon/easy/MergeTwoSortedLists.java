@@ -13,7 +13,7 @@ package amazon.easy;
 public class MergeTwoSortedLists {
 
     /**
-     * �ݹ�ϲ�
+     * 递归合并
      *
      * @param l1
      * @param l2

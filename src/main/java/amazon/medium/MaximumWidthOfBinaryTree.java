@@ -59,7 +59,7 @@ import java.util.List;
  * Output: 8
  * Explanation:The maximum width existing in the fourth level with the length 8 (6,null,null,null,null,null,null,7).
  * <p/>
- * ²ÉÓÃdfs
+ * é‡‡ç”¨dfs
  */
 public class MaximumWidthOfBinaryTree {
     public int widthOfBinaryTree(TreeNode root) {
@@ -79,7 +79,7 @@ public class MaximumWidthOfBinaryTree {
             end.set(level, order);
         }
 
-        //µ±Ç°level²ãµÄ½ÚµãÊı
+        //å½“å‰levelå±‚çš„èŠ‚ç‚¹æ•°
         int cur = end.get(level) - start.get(level) + 1;
 
         int left = dfs(root.left, level + 1, 2 * order, start, end);

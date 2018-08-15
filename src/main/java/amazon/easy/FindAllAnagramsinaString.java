@@ -74,25 +74,25 @@ public class FindAllAnagramsinaString {
         if (s.length() == 0 || s == null || p.length() == 0 || p == null) {
             return list;
         }
-        //°ÑpÀïµÄÃ¿Ò»¸ö×Ö·û¶¼¼ÇÂ¼ÔÚhashÊı×éÀï
+        //æŠŠpé‡Œçš„æ¯ä¸€ä¸ªå­—ç¬¦éƒ½è®°å½•åœ¨hashæ•°ç»„é‡Œ
         int[] hash = new int[256];
         for (char c : p.toCharArray()) {
             hash[c]++;
         }
-        //Á½¸öÖ¸Õë£¬³õÊ¼»¯count ÎªpµÄ³¤¶È
+        //ä¸¤ä¸ªæŒ‡é’ˆï¼Œåˆå§‹åŒ–count ä¸ºpçš„é•¿åº¦
         int left = 0, right = 0, count = p.length();
 
         while (right < s.length()) {
 
-            //Èç¹û×Ö·ûÔÚhashÀï´æÔÚ£¬Ôòcount¼õ1£¬Í¬Ê±right¼Ó1£¬µ±Ç°Öµ¼õ1
+            //å¦‚æœå­—ç¬¦åœ¨hashé‡Œå­˜åœ¨ï¼Œåˆ™countå‡1ï¼ŒåŒæ—¶rightåŠ 1ï¼Œå½“å‰å€¼å‡1
             if (hash[(s.charAt(right++))]-- >= 1) {
                 count--;
             }
-            //µ±countÎª0µÄÊ±ºò£¬ÒâÎ¶×ÅÕÒµ½ÁË×Ó´®£¬Ìí¼Óµ½listÀï
+            //å½“countä¸º0çš„æ—¶å€™ï¼Œæ„å‘³ç€æ‰¾åˆ°äº†å­ä¸²ï¼Œæ·»åŠ åˆ°listé‡Œ
             if (count == 0) {
                 list.add(left);
             }
-            //Èç¹û·¢ÏÖright-left µÄ¼ä¸ôµÈÓÚÒ»¸öpµÄ³¤¶ÈÊ±£¬Ôòleft
+            //å¦‚æœå‘ç°right-left çš„é—´éš”ç­‰äºä¸€ä¸ªpçš„é•¿åº¦æ—¶ï¼Œåˆ™left
             if (right - left == p.length() && hash[s.charAt(left++)]++ >= 0) {
                 count++;
             }

@@ -10,8 +10,8 @@ import java.util.PriorityQueue;
  * Given [3,2,1,5,6,4] and k = 2, return 5.
  * <p/>
  * Note:
- * You may assume k is always valid, 1 ¡Ü k ¡Ü array's length.
- * Á½ÖÖËã·¨·Ç³£ÖØÒª
+ * You may assume k is always valid, 1 â‰¤ k â‰¤ array's length.
+ * ä¸¤ç§ç®—æ³•éå¸¸é‡è¦
  */
 public class KthLargestElementInAnArray {
     /**
@@ -29,7 +29,7 @@ public class KthLargestElementInAnArray {
     }
 
     /**
-     * ÓÅÏÈ¶ÓÁĞ
+     * ä¼˜å…ˆé˜Ÿåˆ—
      * time :O(nlogk)
      * space:O(n)
      *
@@ -39,21 +39,21 @@ public class KthLargestElementInAnArray {
      */
     public int findKthLargest2(int[] nums, int k) {
 
-        //±ß½çÅĞ¶Ï
+        //è¾¹ç•Œåˆ¤æ–­
         if (nums == null || nums.length == 0) {
             return 0;
         }
 
         PriorityQueue<Integer> minHeap = new PriorityQueue<>();
-        //Ñ­»·Èë¶ÓÁĞ
+        //å¾ªç¯å…¥é˜Ÿåˆ—
         for (Integer num : nums) {
             minHeap.offer(num);
-            //¶ÓÁĞ³¤¶È´óÓÚk£¬Ôòpoll³öÀïÃæµÄ×îĞ¡Öµ
+            //é˜Ÿåˆ—é•¿åº¦å¤§äºkï¼Œåˆ™pollå‡ºé‡Œé¢çš„æœ€å°å€¼
             if (minHeap.size() > k) {
                 minHeap.poll();
             }
         }
-        //×îºópoll³öµÄ×îĞ¡Öµ¾ÍÊÇµÚK´óµÄÖµ
+        //æœ€åpollå‡ºçš„æœ€å°å€¼å°±æ˜¯ç¬¬Kå¤§çš„å€¼
         return minHeap.poll();
 
     }

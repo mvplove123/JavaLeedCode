@@ -23,45 +23,45 @@ import java.util.Queue;
  * [9,20],
  * [15,7]
  * ]
- * //¶ş²æÊ÷²ã´Î±éÀú
- * µÚÒ»ÖÖ·½·¨£º¶ÓÁĞ£¬°´Ã¿²ã´æ
- * µÚ¶şÖÖ·½·¨£ºÏÈĞò±éÀú£¬ÊµÏÖ²ã´Î±éÀú£¬ÓÃhelperº¯Êı
+ * //äºŒå‰æ ‘å±‚æ¬¡éå†
+ * ç¬¬ä¸€ç§æ–¹æ³•ï¼šé˜Ÿåˆ—ï¼ŒæŒ‰æ¯å±‚å­˜
+ * ç¬¬äºŒç§æ–¹æ³•ï¼šå…ˆåºéå†ï¼Œå®ç°å±‚æ¬¡éå†ï¼Œç”¨helperå‡½æ•°
  *  time : O(n);
  *  space : O(n);
  */
 public class BinaryTreeLevelOrderTraversal {
     public List<List<Integer>> levelOrder1(TreeNode root) {
-        //±ß½çÌõ¼şÅĞ¶Ï
+        //è¾¹ç•Œæ¡ä»¶åˆ¤æ–­
         List<List<Integer>> res = new ArrayList<>();
         if (root == null) {
             return res;
         }
-        //¶¨Òå¶ÓÁĞ
+        //å®šä¹‰é˜Ÿåˆ—
         Queue<TreeNode> queue = new LinkedList<>();
-        //Ìí¼Ó¸ù½Úµã
+        //æ·»åŠ æ ¹èŠ‚ç‚¹
         queue.offer(root);
-        //Ñ­»·
+        //å¾ªç¯
         while (!queue.isEmpty()) {
-            //Ã¿Ò»²ãµÈ¸öÊı
+            //æ¯ä¸€å±‚ç­‰ä¸ªæ•°
             int size = queue.size();
-            //Ã¿Ò»²ãlist
+            //æ¯ä¸€å±‚list
             List<Integer> list = new ArrayList<>();
-            //¶ÔÃ¿Ò»²ã½øĞĞÑ­»·,ĞÂÌí¼ÓµÄ×óÓÒ×Óµã²»»á´¦ÓÚÑ­»·¶ÓÁĞÀï£¬ÒòÎªÓĞsizeÏŞÖÆ
+            //å¯¹æ¯ä¸€å±‚è¿›è¡Œå¾ªç¯,æ–°æ·»åŠ çš„å·¦å³å­ç‚¹ä¸ä¼šå¤„äºå¾ªç¯é˜Ÿåˆ—é‡Œï¼Œå› ä¸ºæœ‰sizeé™åˆ¶
             for (int i = 0; i < size; i++) {
-                //µ¯³ö½Úµã
+                //å¼¹å‡ºèŠ‚ç‚¹
                 TreeNode cur = queue.poll();
-                //ÅĞ¶ÏÊÇ·ñ´æÔÚ×ó×Óµã£¬´æÔÚÌí¼Óµ½¶ÓÁĞ
+                //åˆ¤æ–­æ˜¯å¦å­˜åœ¨å·¦å­ç‚¹ï¼Œå­˜åœ¨æ·»åŠ åˆ°é˜Ÿåˆ—
                 if (cur.left != null) {
                     queue.offer(cur.left);
                 }
-                //ÅĞ¶ÏÊÇ·ñ´æÔÚÓÒ×Óµã£¬´æÔÚÌí¼Óµ½¶ÓÁĞ
+                //åˆ¤æ–­æ˜¯å¦å­˜åœ¨å³å­ç‚¹ï¼Œå­˜åœ¨æ·»åŠ åˆ°é˜Ÿåˆ—
                 if (cur.right != null) {
                     queue.offer(cur.right);
                 }
-                //°Ñµ±Ç°½ÚµãµÄÖµÌí¼Óµ½list
+                //æŠŠå½“å‰èŠ‚ç‚¹çš„å€¼æ·»åŠ åˆ°list
                 list.add(cur.val);
             }
-            //Ìí¼ÓÃ¿Ò»²ãlist
+            //æ·»åŠ æ¯ä¸€å±‚list
             res.add(list);
 
         }
@@ -70,7 +70,7 @@ public class BinaryTreeLevelOrderTraversal {
     }
 
     public List<List<Integer>> levelOrder2(TreeNode root) {
-        //±ß½çÌõ¼şÅĞ¶Ï
+        //è¾¹ç•Œæ¡ä»¶åˆ¤æ–­
         List<List<Integer>> res = new ArrayList<>();
         if (root == null) {
             return res;
@@ -80,7 +80,7 @@ public class BinaryTreeLevelOrderTraversal {
     }
 
     /**
-     * µİ¹é£¬ÏÈĞò±éÀú
+     * é€’å½’ï¼Œå…ˆåºéå†
      * @param res
      * @param root
      * @param level
@@ -93,7 +93,7 @@ public class BinaryTreeLevelOrderTraversal {
         if (level >= res.size()) {
             res.add(new ArrayList<>());
         }
-        //»ñÈ¡µ±Ç°levelË÷ÒıµÄlist£¬°Ñµ±Ç°ÖµÌí¼Óµ½res
+        //è·å–å½“å‰levelç´¢å¼•çš„listï¼ŒæŠŠå½“å‰å€¼æ·»åŠ åˆ°res
         res.get(level).add(root.val);
 
         helper(res, root.left, level + 1);

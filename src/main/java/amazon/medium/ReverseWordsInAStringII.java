@@ -11,13 +11,13 @@ package amazon.medium;
 public class ReverseWordsInAStringII {
 
     public void reverseWords(char[] s) {
-        //È«²¿µßµ¹
+        //å…¨éƒ¨é¢ å€’
         reverse(s, 0, s.length - 1);
         int r = 0;
 
         while (r < s.length) {
             int l = r;
-            //½ØÈ¡¿Õ¸ñ
+            //æˆªå–ç©ºæ ¼
             while (r < s.length && s[r] != ' ') {
                 r++;
             }
@@ -29,7 +29,7 @@ public class ReverseWordsInAStringII {
     }
 
     /***
-     * ×Ö·û´®µßµ¹  the sky-> yks eht
+     * å­—ç¬¦ä¸²é¢ å€’  the sky-> yks eht
      *
      * @param s
      * @param i

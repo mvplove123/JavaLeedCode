@@ -29,11 +29,11 @@ import java.util.HashMap;
  * cache.get(3);       // returns 3
  * cache.get(4);       // returns 4
  * HashMap + Double Linked List
- * ²åÈë£º1£¬²»´æÔÚ -> capacity -> 1,head = null 2,head != null
- * 2£¬´æÔÚ
- * È¡³ö£º1£¬²»´æÔÚ
- * 2£¬´æÔÚ
- * => ÅÅĞò
+ * æ’å…¥ï¼š1ï¼Œä¸å­˜åœ¨ -> capacity -> 1,head = null 2,head != null
+ * 2ï¼Œå­˜åœ¨
+ * å–å‡ºï¼š1ï¼Œä¸å­˜åœ¨
+ * 2ï¼Œå­˜åœ¨
+ * => æ’åº
  */
 
 public class LRUCache {
@@ -77,22 +77,22 @@ public class LRUCache {
 
         if (node != tail) {
 
-            //½ÚµãÎªÍ·½Úµã
+            //èŠ‚ç‚¹ä¸ºå¤´èŠ‚ç‚¹
             if (node == head) {
-                //Ô­Í·½áµãÏòÇ°ÒÆ¶¯
+                //åŸå¤´ç»“ç‚¹å‘å‰ç§»åŠ¨
                 head = head.next;
             } else {
-                //¸üĞÂ¸Ã½ÚµãµÄÇ°ºó½ÚµãÁ¬½Ó
+                //æ›´æ–°è¯¥èŠ‚ç‚¹çš„å‰åèŠ‚ç‚¹è¿æ¥
                 node.pre.next = node.next;
                 node.next.pre = node.pre;
             }
-            //Ô­Î²½ÚµãÖ¸ÏòĞÂ½Úµã
+            //åŸå°¾èŠ‚ç‚¹æŒ‡å‘æ–°èŠ‚ç‚¹
             tail.next = node;
-            //ĞÂ½ÚµãÖ¸ÏòÔ­Î²½Úµã
+            //æ–°èŠ‚ç‚¹æŒ‡å‘åŸå°¾èŠ‚ç‚¹
             node.pre = tail;
-            //ĞÂ½ÚµãÉèÖÃnull
+            //æ–°èŠ‚ç‚¹è®¾ç½®null
             node.next = null;
-            //Ìæ»»Ô­Î²½Úµã
+            //æ›¿æ¢åŸå°¾èŠ‚ç‚¹
             tail = node;
 
         }
@@ -105,60 +105,60 @@ public class LRUCache {
 
         Node node = map.get(key);
 
-        //½Úµã²»Îª¿Õ
+        //èŠ‚ç‚¹ä¸ä¸ºç©º
         if (node != null) {
-            //½Úµã¸üĞÂÖµ
+            //èŠ‚ç‚¹æ›´æ–°å€¼
             node.value = value;
-            //ÅĞ¶ÏÊÇ·ñÎ²½Úµã
+            //åˆ¤æ–­æ˜¯å¦å°¾èŠ‚ç‚¹
             if (node != tail) {
-                //½ÚµãÎªÍ·½Úµã
+                //èŠ‚ç‚¹ä¸ºå¤´èŠ‚ç‚¹
                 if (node == head) {
-                    //Ô­Í·½áµãÏòÇ°ÒÆ¶¯
+                    //åŸå¤´ç»“ç‚¹å‘å‰ç§»åŠ¨
                     head = head.next;
                 } else {
-                    //¸üĞÂ¸Ã½ÚµãµÄÇ°ºó½ÚµãÁ¬½Ó
+                    //æ›´æ–°è¯¥èŠ‚ç‚¹çš„å‰åèŠ‚ç‚¹è¿æ¥
                     node.pre.next = node.next;
                     node.next.pre = node.pre;
                 }
-                //Ô­Î²½ÚµãÖ¸ÏòĞÂ½Úµã
+                //åŸå°¾èŠ‚ç‚¹æŒ‡å‘æ–°èŠ‚ç‚¹
                 tail.next = node;
-                //ĞÂ½ÚµãÖ¸ÏòÔ­Î²½Úµã
+                //æ–°èŠ‚ç‚¹æŒ‡å‘åŸå°¾èŠ‚ç‚¹
                 node.pre = tail;
-                //ĞÂ½ÚµãÉèÖÃnull
+                //æ–°èŠ‚ç‚¹è®¾ç½®null
                 node.next = null;
-                //Ìæ»»Ô­Î²½Úµã
+                //æ›¿æ¢åŸå°¾èŠ‚ç‚¹
                 tail = node;
             }
         } else {
-            //´´½¨ĞÂ½Úµã
+            //åˆ›å»ºæ–°èŠ‚ç‚¹
             Node newNode = new Node(key, value);
-            //ÎŞÈİÁ¿£¬ÒÆ³ıÒ»¸ö¾ÉÔªËØ
+            //æ— å®¹é‡ï¼Œç§»é™¤ä¸€ä¸ªæ—§å…ƒç´ 
             if (capacity == 0) {
-                //»ñÈ¡Í·²¿ÔªËØ
+                //è·å–å¤´éƒ¨å…ƒç´ 
                 Node temp = head;
-                //Í·²¿ÔªËØÇ°ÒÆ
+                //å¤´éƒ¨å…ƒç´ å‰ç§»
                 head = head.next;
-                //ÒÆ³ı¾ÉµÄÍ·ÔªËØ
+                //ç§»é™¤æ—§çš„å¤´å…ƒç´ 
                 map.remove(temp.key);
-                //¿Õ¼ä¼Ó1
+                //ç©ºé—´åŠ 1
                 capacity++;
             }
-            //³õÊ¼Ê±£¬Ö±½Ó¸üĞÂÍ·ÔªËØ
+            //åˆå§‹æ—¶ï¼Œç›´æ¥æ›´æ–°å¤´å…ƒç´ 
             if (head == null && tail == null) {
                 head = newNode;
             } else {
-                //Ô­Î²²¿ÔªËØnextÖ¸ÏòĞÂÔªËØ
+                //åŸå°¾éƒ¨å…ƒç´ nextæŒ‡å‘æ–°å…ƒç´ 
                 tail.next = newNode;
-                //ĞÂÔªËØpreÖ¸ÏòÔ­Î²²¿ÔªËØ
+                //æ–°å…ƒç´ preæŒ‡å‘åŸå°¾éƒ¨å…ƒç´ 
                 newNode.pre = tail;
-                //ĞÂÔªËØnextÖ¸Ïò¿Õ
+                //æ–°å…ƒç´ nextæŒ‡å‘ç©º
                 newNode.next = null;
 
             }
-            //¸üĞÂÌæ»»Î²²¿ÔªËØ
+            //æ›´æ–°æ›¿æ¢å°¾éƒ¨å…ƒç´ 
             tail = newNode;
             map.put(key, newNode);
-            //¿Õ¼ä¼õ1
+            //ç©ºé—´å‡1
             capacity--;
 
 

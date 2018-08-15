@@ -24,7 +24,7 @@ import java.util.List;
  * <p/>
  * For now, the judge is able to judge based on one instance of gray code sequence. Sorry about that.
  * <p/>
- * ¸ñÀ×Âë
+ * æ ¼é›·ç 
  * G(i) = i ^ (i/2)
  * time: O(1<<n)/O(n)
  * space:O(1<<n)/O(n)
@@ -33,7 +33,7 @@ public class GrayCode {
     public List<Integer> grayCode(int n) {
 
         List<Integer> res = new ArrayList<>();
-        //Ñ­»·£¬1µ½n
+        //å¾ªç¯ï¼Œ1åˆ°n
         for (int i = 0; i < 1 << n; i++) {
             // i/2 == i>>1
             res.add(i ^ i >> 1);

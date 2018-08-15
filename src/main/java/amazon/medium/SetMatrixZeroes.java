@@ -29,7 +29,7 @@ public class SetMatrixZeroes {
      * @param matrix
      */
     public void setZeroes(int[][] matrix) {
-        //ÅĞ¶Ï±ß½ç
+        //åˆ¤æ–­è¾¹ç•Œ
         if (matrix == null || matrix.length == 0) {
             return;
         }
@@ -38,26 +38,26 @@ public class SetMatrixZeroes {
         int n = matrix[0].length;
         boolean col = false;
         boolean row = false;
-        //Ñ­»·Ã¿¸öµã
+        //å¾ªç¯æ¯ä¸ªç‚¹
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                //µ±Ç°µãÎª0
+                //å½“å‰ç‚¹ä¸º0
                 if (matrix[i][j] == 0) {
-                    //¸ÃµãµÄĞĞÊ×£¬ÁĞÊ×ÖÃÎª0
+                    //è¯¥ç‚¹çš„è¡Œé¦–ï¼Œåˆ—é¦–ç½®ä¸º0
                     matrix[i][0] = 0;
                     matrix[0][j] = 0;
-                    //¸Ãµã´¦ÓÚµÚ0ĞĞ£¬ÔòÉèÖÃrow true
+                    //è¯¥ç‚¹å¤„äºç¬¬0è¡Œï¼Œåˆ™è®¾ç½®row true
                     if (i == 0) {
                         row = true;
                     }
-                    //¸Ãµã´¦ÓÚµÚ0ÁĞ£¬ÔòÉèÖÃcol true
+                    //è¯¥ç‚¹å¤„äºç¬¬0åˆ—ï¼Œåˆ™è®¾ç½®col true
                     if (j == 0) {
                         col = true;
                     }
                 }
             }
         }
-        //´ÓµÚÒ»ĞĞ¿ªÊ¼£¬Èç¹û¸ÃĞĞµÄÊ×ÁĞÎª0£¬¾Í°ÑÍ¬ĞĞµÄÆäËûÁĞ¶¼ÖÃÎª0
+        //ä»ç¬¬ä¸€è¡Œå¼€å§‹ï¼Œå¦‚æœè¯¥è¡Œçš„é¦–åˆ—ä¸º0ï¼Œå°±æŠŠåŒè¡Œçš„å…¶ä»–åˆ—éƒ½ç½®ä¸º0
         for (int i = 1; i < m; i++) {
             if (matrix[i][0] == 0) {
                 for (int j = 1; j < n; j++) {
@@ -65,7 +65,7 @@ public class SetMatrixZeroes {
                 }
             }
         }
-        //´ÓµÚÒ»ÁĞ¿ªÊ¼£¬Èç¹û¸ÃÁĞµÄÊ×ĞĞÎª0£¬¾Í°ÑÍ¬ÁĞµÄÆäËûĞĞ¶¼ÖÃÎª0
+        //ä»ç¬¬ä¸€åˆ—å¼€å§‹ï¼Œå¦‚æœè¯¥åˆ—çš„é¦–è¡Œä¸º0ï¼Œå°±æŠŠåŒåˆ—çš„å…¶ä»–è¡Œéƒ½ç½®ä¸º0
         for (int j = 1; j < n; j++) {
             if (matrix[0][j] == 0) {
                 for (int i = 1; i < m; i++) {
@@ -73,13 +73,13 @@ public class SetMatrixZeroes {
                 }
             }
         }
-        //¶ÔµÚ0ĞĞµÄËùÓĞÁĞ¶¼ÖÃÎª0
+        //å¯¹ç¬¬0è¡Œçš„æ‰€æœ‰åˆ—éƒ½ç½®ä¸º0
         if (row) {
             for (int j = 0; j < n; j++) {
                 matrix[0][j] = 0;
             }
         }
-        //¶ÔµÚ0ÁĞµÄËùÓĞĞĞ¶¼ÖÃÎª0
+        //å¯¹ç¬¬0åˆ—çš„æ‰€æœ‰è¡Œéƒ½ç½®ä¸º0
         if (col) {
             for (int i = 0; i < m; i++) {
                 matrix[i][0] = 0;

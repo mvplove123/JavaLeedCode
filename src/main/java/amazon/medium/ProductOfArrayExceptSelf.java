@@ -1,7 +1,7 @@
 package amazon.medium;
 
 /**
- * ¶¯Ì¬¹æ»®Ë¼Ïë
+ * åŠ¨æ€è§„åˆ’æ€æƒ³
  * 238 Created by admin on 2018/2/8
  * Given an array of n integers where n > 1, nums, return an array output such that output[i] is equal to the product
  * of all the elements of nums except nums[i].
@@ -16,7 +16,7 @@ package amazon.medium;
  */
 public class ProductOfArrayExceptSelf {
     public int[] productExceptSelf(int[] nums) {
-        //ÅĞ¶Ï±ß½ç
+        //åˆ¤æ–­è¾¹ç•Œ
         if (nums == null || nums.length == 0) {
             return nums;
         }
@@ -24,13 +24,13 @@ public class ProductOfArrayExceptSelf {
         int n = nums.length;
         int res[] = new int[n];
 
-        //¶Ôµ±Ç°ÔªËØ×ó±ßµÄËùÓĞÔªËØ½øĞĞÏà³Ë
+        //å¯¹å½“å‰å…ƒç´ å·¦è¾¹çš„æ‰€æœ‰å…ƒç´ è¿›è¡Œç›¸ä¹˜
         res[0] = 1;
         for (int i = 1; i < n; i++) {
             res[i] = nums[i - 1] * res[i - 1];
         }
 
-        //¶Ôµ±Ç°ÔªËØÓÒ±ßµÄËùÓĞÔªËØºÍÖ®Ç°×ó±ßµÄÔªËØÏà³Ë
+        //å¯¹å½“å‰å…ƒç´ å³è¾¹çš„æ‰€æœ‰å…ƒç´ å’Œä¹‹å‰å·¦è¾¹çš„å…ƒç´ ç›¸ä¹˜
         int right = 1;
         for (int i = n - 1; i >= 0; i--) {
 

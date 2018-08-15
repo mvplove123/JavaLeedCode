@@ -24,19 +24,19 @@ package amazon.easy;
 public class ImageSmoother {
     public int[][] imageSmoother(int[][] M) {
 
-        //¾ØÕó±ß½çÑéÖ¤
+        //çŸ©é˜µè¾¹ç•ŒéªŒè¯
         if(M==null){
             return  null;
         }
-        //¾ØÕóĞĞÊı
+        //çŸ©é˜µè¡Œæ•°
         int rows = M.length;
 
         if(rows ==0){ return  new int[0][];}
 
-        //¾ØÕóÁĞÊı
+        //çŸ©é˜µåˆ—æ•°
         int cols = M[0].length;
         int result[][] = new int[rows][cols];
-        //Ñ­»·¾ØÕóÃ¿Ò»¸öµã
+        //å¾ªç¯çŸ©é˜µæ¯ä¸€ä¸ªç‚¹
         for(int row = 0;row<rows;row++){
             for(int col=0;col<cols;col++){
                 int count=0;
@@ -50,7 +50,7 @@ public class ImageSmoother {
                         }
                     }
                 }
-                //¼ÆËã½á¹û
+                //è®¡ç®—ç»“æœ
                 result[row][col] = sum/count;
 
             }
@@ -60,7 +60,7 @@ public class ImageSmoother {
     }
 
     /**
-     * Ğ£Ñéx,yÊÇ·ñÔÚrows,cols ¾ØÕóÀï
+     * æ ¡éªŒx,yæ˜¯å¦åœ¨rows,cols çŸ©é˜µé‡Œ
      * @param x
      * @param y
      * @param rows

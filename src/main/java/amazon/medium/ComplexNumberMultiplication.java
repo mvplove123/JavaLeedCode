@@ -28,7 +28,7 @@ import java.util.stream.Stream;
 public class ComplexNumberMultiplication {
     public String complexNumberMultiply(String a, String b) {
 
-        //按照+和i 进行切分，然后流形式转换int，最后合并成数组
+        //鎸夌収+鍜宨 杩涜鍒囧垎锛岀劧鍚庢祦褰㈠紡杞崲int锛屾渶鍚庡悎骞舵垚鏁扮粍
         int[] coefs1 = Stream.of(a.split("\\+|i")).mapToInt(Integer::parseInt).toArray();
         int[] coefs2 = Stream.of(b.split("\\+|i")).mapToInt(Integer::parseInt).toArray();
 

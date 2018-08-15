@@ -26,15 +26,15 @@ public class TwoSumIIinputArrayIsSorted {
 
 
         while (begin < end) {
-            //±È½ÏÊ×Î²Á½ÖµµÄºÍ´óÓÚÄ¿±êÖµ£¬ÔòÎ²Öµ--
+            //æ¯”è¾ƒé¦–å°¾ä¸¤å€¼çš„å’Œå¤§äºŽç›®æ ‡å€¼ï¼Œåˆ™å°¾å€¼--
             if (numbers[begin] + numbers[end] > target) {
                 end--;
-                //±È½ÏÊ×Î²Á½ÖµµÄºÍ´óÓÚÄ¿±êÖµ£¬ÔòÊ×Öµ++
+                //æ¯”è¾ƒé¦–å°¾ä¸¤å€¼çš„å’Œå¤§äºŽç›®æ ‡å€¼ï¼Œåˆ™é¦–å€¼++
 
             } else if (numbers[begin] + numbers[end] < target) {
                 begin--;
 
-                //Á½ÖµÏàµÈ£¬ÔòÌø³öÑ­»·
+                //ä¸¤å€¼ç›¸ç­‰ï¼Œåˆ™è·³å‡ºå¾ªçŽ¯
             } else {
                 break;
             }

@@ -31,25 +31,25 @@ import java.util.Map;
  */
 public class KdiffPairsInAnArray {
     public int findPairs(int[] nums, int k) {
-        //¿¼ÂÇ±ß½ç
+        //è€ƒè™‘è¾¹ç•Œ
         if (k < 0 || nums == null || nums.length == 0) {
             return 0;
         }
 
         HashMap<Integer, Integer> map = new HashMap<>();
         int count = 0;
-        //¶ÔÊı×éµÄÔªËØ½øĞĞ¼ÆÊı·ÅÈëmapÖĞ
+        //å¯¹æ•°ç»„çš„å…ƒç´ è¿›è¡Œè®¡æ•°æ”¾å…¥mapä¸­
         for (Integer i : nums) {
             map.put(i, map.getOrDefault(i, 0) + 1);
         }
-        //Ñ­»·mapÃ¿Ò»¸öÔªËØ
+        //å¾ªç¯mapæ¯ä¸€ä¸ªå…ƒç´ 
         for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
-            //kµÈÓÚ0£¬Ôò¶Ôvalue´óÓÚµÈÓÚ2µÄÊı½øĞĞÀÛ¼Ó£¬ÒòÎª´óÓÚµÈÓÚ2ÒâÎ¶×ÅÓĞÏàÍ¬µÄÖµ
+            //kç­‰äº0ï¼Œåˆ™å¯¹valueå¤§äºç­‰äº2çš„æ•°è¿›è¡Œç´¯åŠ ï¼Œå› ä¸ºå¤§äºç­‰äº2æ„å‘³ç€æœ‰ç›¸åŒçš„å€¼
             if (k == 0) {
                 if (entry.getValue() >= 2) {
                     count++;
                 }
-                //k²»µÈÓÚ0£¬Ôòµ±Ç°µÄkey+kÊÇ·ñ´æÔÚmap¼¯ºÏÀï£¬ÓĞÔòÀÛ¼Ó
+                //kä¸ç­‰äº0ï¼Œåˆ™å½“å‰çš„key+kæ˜¯å¦å­˜åœ¨mapé›†åˆé‡Œï¼Œæœ‰åˆ™ç´¯åŠ 
             } else {
                 if (map.containsKey(entry.getKey() + k)) {
                     count++;

@@ -5,8 +5,8 @@ package amazon.easy;
  * <p/>
  * Given a binary search tree (BST), find the lowest common ancestor (LCA) of two given nodes in the BST.
  * <p/>
- * According to the definition of LCA on Wikipedia: ¡°The lowest common ancestor is defined between two nodes v and w
- * as the lowest node in T that has both v and w as descendants (where we allow a node to be a descendant of itself).¡±
+ * According to the definition of LCA on Wikipedia: â€œThe lowest common ancestor is defined between two nodes v and w
+ * as the lowest node in T that has both v and w as descendants (where we allow a node to be a descendant of itself).â€
  * <p/>
  * _______6______
  * /              \
@@ -36,7 +36,7 @@ class TreeNode {
 public class LowestCommonAncestoroFaBinarySearchTree {
 
     /**
-     * µİ¹éĞÎÊ½
+     * é€’å½’å½¢å¼
      *
      * @param root
      * @param p
@@ -45,20 +45,20 @@ public class LowestCommonAncestoroFaBinarySearchTree {
      */
     public TreeNode lowestCommonAncestor1(TreeNode root, TreeNode p, TreeNode q) {
 
-        //ÅĞ¶Ïp£¬qÁ½¸ö½ÚµãÊÇ·ñÔÚ×ó²à
+        //åˆ¤æ–­pï¼Œqä¸¤ä¸ªèŠ‚ç‚¹æ˜¯å¦åœ¨å·¦ä¾§
         if (root.val > p.val && root.val > q.val) {
             return lowestCommonAncestor1(root.left, p, q);
-        } //ÅĞ¶Ïp£¬qÁ½¸ö½ÚµãÊÇ·ñÔÚÓÒ²à
+        } //åˆ¤æ–­pï¼Œqä¸¤ä¸ªèŠ‚ç‚¹æ˜¯å¦åœ¨å³ä¾§
         else if (root.val < p.val && root.val < q.val) {
             return lowestCommonAncestor1(root.right, p, q);
-            //pq,·Ö¾ÓÁ½²à
+            //pq,åˆ†å±…ä¸¤ä¾§
         } else {
             return root;
         }
     }
 
     /**
-     * Ñ­»·ĞÎÊ½
+     * å¾ªç¯å½¢å¼
      *
      * @param root
      * @param p
@@ -69,14 +69,14 @@ public class LowestCommonAncestoroFaBinarySearchTree {
 
 
         while (true) {
-            //ÅĞ¶Ïp£¬qÁ½¸ö½ÚµãÊÇ·ñÔÚ×ó²à£¬Ñ­»·µ½×ó×ÓÊ÷ÉÏ
+            //åˆ¤æ–­pï¼Œqä¸¤ä¸ªèŠ‚ç‚¹æ˜¯å¦åœ¨å·¦ä¾§ï¼Œå¾ªç¯åˆ°å·¦å­æ ‘ä¸Š
             if (root.val > p.val && root.val > q.val) {
                 root = root.left;
             }
-            //ÅĞ¶Ïp£¬qÁ½¸ö½ÚµãÊÇ·ñÔÚÓÒ²à£¬Ñ­»·µ½ÓÒ×ÓÊ÷ÉÏ
+            //åˆ¤æ–­pï¼Œqä¸¤ä¸ªèŠ‚ç‚¹æ˜¯å¦åœ¨å³ä¾§ï¼Œå¾ªç¯åˆ°å³å­æ ‘ä¸Š
             else if (root.val < p.val && root.val < q.val) {
                 root = root.right;
-                //pq,·Ö¾ÓÁ½²à
+                //pq,åˆ†å±…ä¸¤ä¾§
             } else {
                 return root;
             }

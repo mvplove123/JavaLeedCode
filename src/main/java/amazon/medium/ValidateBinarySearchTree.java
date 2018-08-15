@@ -23,16 +23,16 @@ import sun.reflect.generics.tree.Tree;
  * 2   3
  * Binary tree [1,2,3], return false.
  * <p/>
- * ¶ş²æËÑË÷Ê÷£¬µ±Ç°½ÚµãµÄ´óÓÚËùÓĞµÄ×ó½Úµã£¬Ğ¡ÓÚÓÒ½Úµã
+ * äºŒå‰æœç´¢æ ‘ï¼Œå½“å‰èŠ‚ç‚¹çš„å¤§äºæ‰€æœ‰çš„å·¦èŠ‚ç‚¹ï¼Œå°äºå³èŠ‚ç‚¹
  */
 public class ValidateBinarySearchTree {
     public boolean isValidBST(TreeNode root) {
 
-        //±ß½çÅĞ¶Ï
+        //è¾¹ç•Œåˆ¤æ–­
         if (root == null) {
             return true;
         }
-        //µİ¹éµ÷ÓÃ
+        //é€’å½’è°ƒç”¨
         return helper(root, null, null);
 
     }
@@ -42,15 +42,15 @@ public class ValidateBinarySearchTree {
         if (root == null) {
             return true;
         }
-        //µ±Ç°×ó½ÚµãÖµ´óÓÚµÈÓÚ×î´óÖµ£¬Ôòfalse
+        //å½“å‰å·¦èŠ‚ç‚¹å€¼å¤§äºç­‰äºæœ€å¤§å€¼ï¼Œåˆ™false
         if (max != null && root.val >= max) {
             return false;
         }
-        //µ±Ç°ÓÒ½ÚµãÖµ´óÓÚµÈÓÚ×î´óÖµ£¬Ôòfalse
+        //å½“å‰å³èŠ‚ç‚¹å€¼å¤§äºç­‰äºæœ€å¤§å€¼ï¼Œåˆ™false
         if (min != null && root.val <= min) {
             return false;
         }
-        //µİ¹éµ÷ÓÃ£¬³õÊ¼×ó½Úµã×î´óÖµÎªroot.val , ÓÒ½Úµã×îĞ¡ÖµÎªroot.val;
+        //é€’å½’è°ƒç”¨ï¼Œåˆå§‹å·¦èŠ‚ç‚¹æœ€å¤§å€¼ä¸ºroot.val , å³èŠ‚ç‚¹æœ€å°å€¼ä¸ºroot.val;
         return helper(root.left, min, root.val) && helper(root.right, root.val, max);
 
     }

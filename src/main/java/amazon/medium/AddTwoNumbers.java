@@ -26,31 +26,31 @@ class ListNode {
 
 public class AddTwoNumbers {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        //³õÊ¼»¯
+        //åˆå§‹åŒ–
         ListNode dummy = new ListNode(0);
         int sum = 0;
-        //ÖØĞÂ¸³Öµ
+        //é‡æ–°èµ‹å€¼
         ListNode cur = dummy;
         ListNode p1 = l1, p2 = l2;
-        //Ñ­»·
+        //å¾ªç¯
         while (p1 != null || p2 != null) {
-            //ÀÛ¼Óp1µÄÖµ£¬²¢ÇÒp1Ö¸ÏòÏÂÒ»¸ö½Úµã
+            //ç´¯åŠ p1çš„å€¼ï¼Œå¹¶ä¸”p1æŒ‡å‘ä¸‹ä¸€ä¸ªèŠ‚ç‚¹
             if (p1 != null) {
                 sum += p1.val;
                 p1 = p1.next;
             }
-            //ÀÛ¼Óp2µÄÖµ£¬²¢ÇÒp2Ö¸ÏòÏÂÒ»¸ö½Úµã
+            //ç´¯åŠ p2çš„å€¼ï¼Œå¹¶ä¸”p2æŒ‡å‘ä¸‹ä¸€ä¸ªèŠ‚ç‚¹
             if (p2 != null) {
                 sum += p2.val;
                 p2 = p2.next;
             }
-            //³õÊ¼»¯ÏÂÒ»¸ö½Úµã
+            //åˆå§‹åŒ–ä¸‹ä¸€ä¸ªèŠ‚ç‚¹
             cur.next = new ListNode(sum % 10);
             sum /= 10;
-            //ÏÂÒ»¸ö½Úµã¸üĞÂµ±Ç°½Úµã
+            //ä¸‹ä¸€ä¸ªèŠ‚ç‚¹æ›´æ–°å½“å‰èŠ‚ç‚¹
             cur = cur.next;
         }
-        //Ã»ÓĞ½ÚµãÊ±£¬Èç¹û×îºóÒ»¸öÎª½øÎ»£¬Ôò¼ÓÈëÒ»¸öĞÂÖµ
+        //æ²¡æœ‰èŠ‚ç‚¹æ—¶ï¼Œå¦‚æœæœ€åä¸€ä¸ªä¸ºè¿›ä½ï¼Œåˆ™åŠ å…¥ä¸€ä¸ªæ–°å€¼
         if (sum == 1) {
             cur.next = new ListNode(1);
         }

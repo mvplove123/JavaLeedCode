@@ -27,16 +27,16 @@ public class SerializeAndDeserializeBST {
         if (root == null) {
             return null;
         }
-        //¶¨ÒåÒ»¸öÕ»£¬ÔËÓÃÕ»µÄºó½øÏÈ³öµÄÌØĞÔ
+        //å®šä¹‰ä¸€ä¸ªæ ˆï¼Œè¿ç”¨æ ˆçš„åè¿›å…ˆå‡ºçš„ç‰¹æ€§
         Stack<TreeNode> st = new Stack<>();
-        //ÏÈ°Ñ¸ù½Úµã²åÈë
+        //å…ˆæŠŠæ ¹èŠ‚ç‚¹æ’å…¥
         st.push(root);
-        //²»Îª¿ÕµÄÇé¿öÏÂ
+        //ä¸ä¸ºç©ºçš„æƒ…å†µä¸‹
         while (!st.isEmpty()) {
-            //µ¯³ö½Úµã²¢ÉèÖµ
+            //å¼¹å‡ºèŠ‚ç‚¹å¹¶è®¾å€¼
             root = st.pop();
             sb.append(root.val).append(",");
-            //ÏÈpush ÓÒ±ß½Úµã£¬popºóÏÈ³ö×ó±ß½Úµã
+            //å…ˆpush å³è¾¹èŠ‚ç‚¹ï¼Œpopåå…ˆå‡ºå·¦è¾¹èŠ‚ç‚¹
             if (root.right != null) {
                 st.push(root.right);
             }
@@ -51,11 +51,11 @@ public class SerializeAndDeserializeBST {
 
     // Decodes your encoded data to tree.
     public TreeNode deserialize(String data) {
-        //±ß½çÅĞ¶Ï
+        //è¾¹ç•Œåˆ¤æ–­
         if (data==null || data.length()==0) {
             return null;
         }
-        //Êı¾İ´æÈë¶ÓÁĞ
+        //æ•°æ®å­˜å…¥é˜Ÿåˆ—
         String[] strs = data.split(",");
         Queue<Integer> q = new LinkedList<>();
         for (String str : strs) {
@@ -64,23 +64,23 @@ public class SerializeAndDeserializeBST {
 
         return getNode(q);
     }
-    //µ÷ÓÃ·µ»Ø½Úµã
+    //è°ƒç”¨è¿”å›èŠ‚ç‚¹
     public TreeNode getNode(Queue<Integer> q) {
         if (q.isEmpty()) {
             return null;
         }
-        //µ¯³ö¸ù½Úµã
+        //å¼¹å‡ºæ ¹èŠ‚ç‚¹
         TreeNode root = new TreeNode(q.poll());
-        //ÔÙ´Î¶¨Òå¶ÓÁĞ
+        //å†æ¬¡å®šä¹‰é˜Ÿåˆ—
         Queue<Integer> smallerQueue = new LinkedList<>();
-        //Ô´¶ÓÁĞ²»Îª¿Õ²¢ÇÒµ¯³öÖµĞ¡ÓÚµ±Ç°¸ú½ÚµãÖµ
+        //æºé˜Ÿåˆ—ä¸ä¸ºç©ºå¹¶ä¸”å¼¹å‡ºå€¼å°äºå½“å‰è·ŸèŠ‚ç‚¹å€¼
         while (!q.isEmpty() && q.peek() < root.val) {
-            //¼ÓÈëµ½×ó²à¶ÓÁĞÀï
+            //åŠ å…¥åˆ°å·¦ä¾§é˜Ÿåˆ—é‡Œ
             smallerQueue.offer(q.poll());
         }
-        //×ó×ÓÊ÷
+        //å·¦å­æ ‘
         root.left = getNode(smallerQueue);
-        //ÓÒ×ÓÊ÷
+        //å³å­æ ‘
         root.right = getNode(q);
         return root;
 

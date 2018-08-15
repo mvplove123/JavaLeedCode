@@ -28,28 +28,28 @@ class RandomListNode {
 public class CopyListwithRandomPointer {
     public RandomListNode copyRandomList(RandomListNode head) {
 
-        //ÓÃhashmap½øĞĞÁ´±íÁ¬½Ó
+        //ç”¨hashmapè¿›è¡Œé“¾è¡¨è¿æ¥
         HashMap<RandomListNode, RandomListNode> map = new HashMap<>();
 
         RandomListNode cur = head;
-        //°ÑÃ¿Ò»¸öÔªËØ¸´ÖÆµ½hashmapÀï
+        //æŠŠæ¯ä¸€ä¸ªå…ƒç´ å¤åˆ¶åˆ°hashmapé‡Œ
         while (cur != null) {
             map.put(cur, new RandomListNode(cur.label));
             cur = cur.next;
         }
-        //ÓÉÓÚÒÑ¾­Ñ­»·µ½Î²²¿£¬ËùÒÔÒªÖØĞÂ¸³ÖµÍ·²¿
+        //ç”±äºå·²ç»å¾ªç¯åˆ°å°¾éƒ¨ï¼Œæ‰€ä»¥è¦é‡æ–°èµ‹å€¼å¤´éƒ¨
         cur = head;
-        //ÔÙ´ÎÑ­»·ÓÃÓÚ¹ØÁª¹ØÏµ
+        //å†æ¬¡å¾ªç¯ç”¨äºå…³è”å…³ç³»
         while (cur != null) {
-            //°ÑcurÏÂÒ»¸ö½Úµã¸³Öµ¸ømapÀïcurµÄÏÂÒ»¸ö½Úµã£¬Á¬½ÓÆğÀ´
+            //æŠŠcurä¸‹ä¸€ä¸ªèŠ‚ç‚¹èµ‹å€¼ç»™mapé‡Œcurçš„ä¸‹ä¸€ä¸ªèŠ‚ç‚¹ï¼Œè¿æ¥èµ·æ¥
             map.get(cur).next = map.get(cur.next);
-            //°ÑcurµÄËæ»úÊı¶ÔÓ¦µÄmapÀïµÄ½Úµã¸³Öµ¸øcurÔÚmapÀïµÄËæ»ú½Úµã
+            //æŠŠcurçš„éšæœºæ•°å¯¹åº”çš„mapé‡Œçš„èŠ‚ç‚¹èµ‹å€¼ç»™curåœ¨mapé‡Œçš„éšæœºèŠ‚ç‚¹
             map.get(cur).random = map.get(cur.random);
-            //curÖ¸ÏòÏÂÒ»¸ö½Úµã
+            //curæŒ‡å‘ä¸‹ä¸€ä¸ªèŠ‚ç‚¹
             cur = cur.next;
 
         }
-        //·µ»ØheadµÄÄÇ¸ö½Úµã
+        //è¿”å›headçš„é‚£ä¸ªèŠ‚ç‚¹
         return map.get(head);
 
 

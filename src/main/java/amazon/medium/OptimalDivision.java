@@ -30,35 +30,35 @@ package amazon.medium;
  * Elements in the given array will be in range [2, 1000].
  * There is only one optimal division for each test case.
  * <p/>
- * ´ËÌâ¿¼µãÊýÑ§Ìâ a/(b/c) =a/b*c
- * Êý×éÖÐn¸öÊý×Ö£¬Èç¹û²»¼ÓÀ¨ºÅ¾ÍÊÇ£º
+ * æ­¤é¢˜è€ƒç‚¹æ•°å­¦é¢˜ a/(b/c) =a/b*c
+ * æ•°ç»„ä¸­nä¸ªæ•°å­—ï¼Œå¦‚æžœä¸åŠ æ‹¬å·å°±æ˜¯ï¼š
  * <p/>
  * x1 / x2 / x3 / ... / xn
  * <p/>
- * ÄÇÃ´ÎÒÃÇÈçºÎ¼ÓÀ¨ºÅÊ¹µÃÆäÖµ×î´óÄØ£¬ÄÇÃ´¾ÍÊÇ½«x2ºóÃæµÄ³ýÊý¶¼±ä³É³ËÊý£¬±ÈÈçÖ»ÓÐÈý¸öÊý×ÖµÄÇé¿ö a / b / c£¬Èç¹ûÎÒÃÇÔÚºóÁ½¸öÊýÉÏ¼ÓÉÏÀ¨ºÅ a / (b / c)£¬Êµ¼ÊÉÏ¾ÍÊÇa / b *
- * c¡£¶øÇÒbÓÀÔ¶Ö»ÄÜµ±³ýÊý£¬aÒ²ÓÀÔ¶Ö»ÄÜµ±±»³ýÊý¡£Í¬Àí£¬x1Ö»ÄÜµ±±»³ýÊý£¬x2Ö»ÄÜµ±³ýÊý£¬µ«ÊÇx3Ö®ºóµÄÊý£¬Ö»ÒªÎÒÃÇ¶¼½«Æä±äÎª³ËÊý£¬ÄÇÃ´µÃµ½µÄÖµ¿Ï¶¨ÊÇ×î´óµÄ£¬ËùÒÔ¾ÍÖ»ÓÐÒ»ÖÖ¼ÓÀ¨ºÅµÄ·½Ê½£¬¼´:
+ * é‚£ä¹ˆæˆ‘ä»¬å¦‚ä½•åŠ æ‹¬å·ä½¿å¾—å…¶å€¼æœ€å¤§å‘¢ï¼Œé‚£ä¹ˆå°±æ˜¯å°†x2åŽé¢çš„é™¤æ•°éƒ½å˜æˆä¹˜æ•°ï¼Œæ¯”å¦‚åªæœ‰ä¸‰ä¸ªæ•°å­—çš„æƒ…å†µ a / b / cï¼Œå¦‚æžœæˆ‘ä»¬åœ¨åŽä¸¤ä¸ªæ•°ä¸ŠåŠ ä¸Šæ‹¬å· a / (b / c)ï¼Œå®žé™…ä¸Šå°±æ˜¯a / b *
+ * cã€‚è€Œä¸”bæ°¸è¿œåªèƒ½å½“é™¤æ•°ï¼Œaä¹Ÿæ°¸è¿œåªèƒ½å½“è¢«é™¤æ•°ã€‚åŒç†ï¼Œx1åªèƒ½å½“è¢«é™¤æ•°ï¼Œx2åªèƒ½å½“é™¤æ•°ï¼Œä½†æ˜¯x3ä¹‹åŽçš„æ•°ï¼Œåªè¦æˆ‘ä»¬éƒ½å°†å…¶å˜ä¸ºä¹˜æ•°ï¼Œé‚£ä¹ˆå¾—åˆ°çš„å€¼è‚¯å®šæ˜¯æœ€å¤§çš„ï¼Œæ‰€ä»¥å°±åªæœ‰ä¸€ç§åŠ æ‹¬å·çš„æ–¹å¼ï¼Œå³:
  * <p/>
  * x1 / (x2 / x3 / ... / xn)
  * <p/>
- * ÕâÑùµÄ»°¾ÍÍêÈ«²»ÓÃµÝ¹éÁË£¬ÕâµÀÌâ¾Í±ä³ÉÁËÒ»¸öµÀ¼òµ¥µÄ×Ö·û´®²Ù×÷µÄÌâÄ¿ÁË£º
+ * è¿™æ ·çš„è¯å°±å®Œå…¨ä¸ç”¨é€’å½’äº†ï¼Œè¿™é“é¢˜å°±å˜æˆäº†ä¸€ä¸ªé“ç®€å•çš„å­—ç¬¦ä¸²æ“ä½œçš„é¢˜ç›®äº†ï¼š
  */
 public class OptimalDivision {
     public String optimalDivision(int[] nums) {
 
-        //±ß½çÌõ¼þÅÐ¶Ï
+        //è¾¹ç•Œæ¡ä»¶åˆ¤æ–­
         String res = "";
         if (nums == null || nums.length == 0) {
             return res;
         }
-        //º¬ÓÐÒ»¸öÊý×ÖÊ±
+        //å«æœ‰ä¸€ä¸ªæ•°å­—æ—¶
         if (nums.length == 1) {
             return res + nums[0];
         }
-        //º¬ÓÐ2¸öÊý×ÖÊ±
+        //å«æœ‰2ä¸ªæ•°å­—æ—¶
         if (nums.length == 2) {
             return res + nums[0] + "/" + nums[1];
         }
-        //´óÓÚ2¸öÊý×ÖÊ±£¬Æ´½Ó×Ö·û
+        //å¤§äºŽ2ä¸ªæ•°å­—æ—¶ï¼Œæ‹¼æŽ¥å­—ç¬¦
         res = res + nums[0] + "/(" + nums[1];
         for (int i = 2; i < nums.length; i++) {
             res = res + "/" + nums[i];

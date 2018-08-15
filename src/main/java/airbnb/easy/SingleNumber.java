@@ -1,4 +1,4 @@
-package airbnb;
+package airbnb.easy;
 
 /**
  * 136. Single Number
@@ -17,7 +17,7 @@ package airbnb;
  * <p/>
  * Input: [4,1,2,1,2]
  * Output: 4
- * 异或思路，相同为0，不同为1
+ * 寮傛垨鎬濊矾锛岀浉鍚屼负0锛屼笉鍚屼负1
  */
 public class SingleNumber {
     public int singleNumber(int[] nums) {

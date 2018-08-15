@@ -1,6 +1,5 @@
 package airbnb.easy;
 
-import airbnb.AddStrings;
 import org.junit.*;
 
 public class AddStringsTest {

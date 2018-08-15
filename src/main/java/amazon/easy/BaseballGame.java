@@ -53,22 +53,22 @@ public class BaseballGame {
         for (String s : ops) {
 
             if (s.equals("C")) {
-                //¼õÈ¥×îºóÒ»¸öÔªËØ
+                //å‡å»æœ€åä¸€ä¸ªå…ƒç´ 
                 sum -= stack.pop();
             } else if (s.equals("D")) {
-                //×îĞÂÔªËØ*2
+                //æœ€æ–°å…ƒç´ *2
                 stack.push(stack.peek() * 2);
                 sum += stack.peek();
 
             } else if (s.equals("+")) {
-                //×îĞÂÁ½¸öÔªËØÀÛ¼Ó
+                //æœ€æ–°ä¸¤ä¸ªå…ƒç´ ç´¯åŠ 
                 int last = stack.pop();
                 int add = last + stack.peek();
                 stack.push(last);
                 stack.push(add);
                 sum += stack.peek();
             } else {
-                //Ìí¼ÓÔªËØ
+                //æ·»åŠ å…ƒç´ 
                 stack.push(Integer.parseInt(s));
                 sum += stack.peek();
             }

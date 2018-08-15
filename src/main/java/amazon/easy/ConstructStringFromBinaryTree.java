@@ -40,29 +40,29 @@ public class ConstructStringFromBinaryTree {
 
     public String tree2str(TreeNode t) {
 
-        //±ß½çÅĞ¶Ï
+        //è¾¹ç•Œåˆ¤æ–­
         if (t == null) {
             return "";
         }
 
-        //¸ù½Úµã²åÈë
+        //æ ¹èŠ‚ç‚¹æ’å…¥
         String result = t.val + "";
-        //µİ¹é×óÓÒ½Úµã
+        //é€’å½’å·¦å³èŠ‚ç‚¹
         String left = tree2str(t.left);
         String right = tree2str(t.right);
-        //ÎŞ×óÓÒ×Ó½Úµã
+        //æ— å·¦å³å­èŠ‚ç‚¹
         if (left == "" && right == "") {
             return result;
         }
-        //×ó×ÓµãÎªnull
+        //å·¦å­ç‚¹ä¸ºnull
         if (left == "") {
             return result + "()" + "(" + right + ")";
         }
-        //ÓÒ×ÓµãÎªnull
+        //å³å­ç‚¹ä¸ºnull
         if (right == "") {
             return result + "(" + left + ")";
         }
-        //¶¼²»Îªnull
+        //éƒ½ä¸ä¸ºnull
         return result + "(" + left + ")" + "(" + right + ")";
 
     }

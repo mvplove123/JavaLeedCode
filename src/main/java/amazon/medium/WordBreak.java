@@ -22,23 +22,23 @@ import java.util.List;
  */
 
 public class WordBreak {
-    //¶¯Ì¬¹æ»®
+    //åŠ¨æ€è§„åˆ’
     public boolean wordBreak(String s, List<String> wordDict) {
-        //¶¨ÒåBooleanÀàĞÍÊı×é£¬¼Ó1ÊÇ¿¼ÂÇsubstring·½·¨ÉÏÏŞ
+        //å®šä¹‰Booleanç±»å‹æ•°ç»„ï¼ŒåŠ 1æ˜¯è€ƒè™‘substringæ–¹æ³•ä¸Šé™
         boolean[] dp = new boolean[s.length() + 1];
         dp[0] = true;
-        //°´×Ö·û´®³¤¶ÈÑ­»·
+        //æŒ‰å­—ç¬¦ä¸²é•¿åº¦å¾ªç¯
         for (int i = 1; i <= s.length(); i++) {
-            //Ò»¸ö¸ö½ØÈ¡
+            //ä¸€ä¸ªä¸ªæˆªå–
             for (int j = 0; j < i; j++) {
-                //ÅĞ¶Ï½ØÈ¡µÄ×Ó´®ÊÇ·ñÔÚlist¼¯ºÏÀï
+                //åˆ¤æ–­æˆªå–çš„å­ä¸²æ˜¯å¦åœ¨listé›†åˆé‡Œ
                 if (dp[j] && wordDict.contains(s.substring(j, i))) {
                     dp[i] = true;
                     break;
                 }
             }
         }
-        //Èç¹ûlist°üº¬£¬ÄÇÃ´×îºóÒ»¸ö×Ö·û¿Ï¶¨Îªtrue
+        //å¦‚æœliståŒ…å«ï¼Œé‚£ä¹ˆæœ€åä¸€ä¸ªå­—ç¬¦è‚¯å®šä¸ºtrue
         return dp[s.length()];
     }
 

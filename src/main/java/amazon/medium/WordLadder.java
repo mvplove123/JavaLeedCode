@@ -31,38 +31,38 @@ import java.util.Queue;
  * The wordList parameter had been changed to a list of strings (instead of a set of strings). Please reload the code
  * definition to get the latest changes.
  * <p/>
- * ²ÉÓÃBFSËã·¨£¨Í¨³£ÓÃ¶ÓÁĞÊµÏÖ£©
+ * é‡‡ç”¨BFSç®—æ³•ï¼ˆé€šå¸¸ç”¨é˜Ÿåˆ—å®ç°ï¼‰
  */
 public class WordLadder {
     public int ladderLength(String beginWord, String endWord, List<String> wordList) {
 
-        //list ×ªset²¢ÒÆ³ıbeginWord
+        //list è½¬setå¹¶ç§»é™¤beginWord
         HashSet<String> set = new HashSet<>(wordList);
         if (set.contains(beginWord)) {
             set.remove(beginWord);
         }
-        //¶¨Òå¶ÓÁĞ
+        //å®šä¹‰é˜Ÿåˆ—
         Queue<String> queue = new LinkedList<>();
         int level = 1;
         int curNum = 1;
         int nextNum = 0;
-        //·ÅÈëbeginword
+        //æ”¾å…¥beginword
         queue.offer(beginWord);
 
         while (!queue.isEmpty()) {
-            //µ¯³ö¶ÓÁĞÀïµÄword
+            //å¼¹å‡ºé˜Ÿåˆ—é‡Œçš„word
             String word = queue.poll();
             curNum--;
-            //¶ÔwordµÄÃ¿¸ö×Ö·û½øĞĞÑ­»·
+            //å¯¹wordçš„æ¯ä¸ªå­—ç¬¦è¿›è¡Œå¾ªç¯
             for (int i = 0; i < word.length(); i++) {
 
                 char[] wordUnit = word.toCharArray();
-                //¶ÔÃ¿¸öÔªËØ½øĞĞÌæ»»
+                //å¯¹æ¯ä¸ªå…ƒç´ è¿›è¡Œæ›¿æ¢
                 for (char j = 'a'; j < 'z'; j++) {
                     wordUnit[i] = j;
-                    //Éú³ÉÁÙÊ±ĞÂ×Ö·û
+                    //ç”Ÿæˆä¸´æ—¶æ–°å­—ç¬¦
                     String temp = new String(wordUnit);
-                    //Èç¹ûset°üº¬×Ö·û´®²¢ÇÒÆ¥ÅäÉÏendword£¬·µ»Ølevel+1
+                    //å¦‚æœsetåŒ…å«å­—ç¬¦ä¸²å¹¶ä¸”åŒ¹é…ä¸Šendwordï¼Œè¿”å›level+1
                     if (set.contains(temp)) {
                         if (temp.equals(endWord)) {
                             return level + 1;

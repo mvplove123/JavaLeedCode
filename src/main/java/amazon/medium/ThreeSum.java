@@ -21,48 +21,48 @@ import java.util.List;
  * ]
  * time:O(n^2)
  * space:O(n)
- * ÖØµã£¬È·¶¨Ò»¸öÊı£¬×ßÁíÍâÁ½¸öÊı£¬ÓÃ2 sum·¨½âÌâ£¬ÏÈÅÅĞò´¦Àí
+ * é‡ç‚¹ï¼Œç¡®å®šä¸€ä¸ªæ•°ï¼Œèµ°å¦å¤–ä¸¤ä¸ªæ•°ï¼Œç”¨2 sumæ³•è§£é¢˜ï¼Œå…ˆæ’åºå¤„ç†
  */
 public class ThreeSum {
     public List<List<Integer>> threeSum(int[] nums) {
 
         List<List<Integer>> res = new ArrayList<>();
-        //ÏÈÅÅĞò
+        //å…ˆæ’åº
         Arrays.sort(nums);
-        //ÒòÎªÉèÖÃÊ×Î²Öµ£¬ËùÓĞ³¤¶È-2
+        //å› ä¸ºè®¾ç½®é¦–å°¾å€¼ï¼Œæ‰€æœ‰é•¿åº¦-2
         for (int i = 0; i < nums.length - 2; i++) {
             if (i > 0 && nums[i] == nums[i - 1]) {
                 continue;
             }
 
-            //Ê×Ë÷Òı
+            //é¦–ç´¢å¼•
             int low = i + 1;
-            //Î²Ë÷Òı
+            //å°¾ç´¢å¼•
             int high = nums.length - 1;
             int sum = 0 - nums[i];
 
-            //¹Ì¶¨i,¿ªÊ¼Ñ­»·£¬Ê×Î²Ë÷Òı
+            //å›ºå®ši,å¼€å§‹å¾ªç¯ï¼Œé¦–å°¾ç´¢å¼•
             while (low < high) {
-                //Èç¹ûÏàµÈ
+                //å¦‚æœç›¸ç­‰
                 if (nums[low] + nums[high] == sum) {
-                    //Ìí¼Ó3¸öÖµ
+                    //æ·»åŠ 3ä¸ªå€¼
                     res.add(Arrays.asList(nums[i], nums[low], nums[high]));
-                    //Ê×Ë÷ÒıÈ¥ÖØ
+                    //é¦–ç´¢å¼•å»é‡
                     while (low < high && nums[low] == nums[low + 1]) {
                         low++;
                     }
-                    //Î²Ë÷ÒıÈ¥ÖØ
+                    //å°¾ç´¢å¼•å»é‡
                     while (low < high && nums[high] == nums[high - 1]) {
                         high--;
                     }
-                    //Ê×Î²Ë÷ÒıÍ¬Ê±ÏòÇ°Ò»²½£¬¿¿Â£
+                    //é¦–å°¾ç´¢å¼•åŒæ—¶å‘å‰ä¸€æ­¥ï¼Œé æ‹¢
                     low++;
                     high--;
-                    //Ğ¡ÓÚsum£¬ÔòĞèÒª¸üĞÂÊ×²¿Ë÷Òı
+                    //å°äºsumï¼Œåˆ™éœ€è¦æ›´æ–°é¦–éƒ¨ç´¢å¼•
                 } else if (nums[low] + nums[high] < sum) {
                     low++;
                 } else {
-                    //´óÓÚsum£¬Ôò¸üĞÂÎ²²¿Ë÷Òı
+                    //å¤§äºsumï¼Œåˆ™æ›´æ–°å°¾éƒ¨ç´¢å¼•
                     high--;
                 }
             }

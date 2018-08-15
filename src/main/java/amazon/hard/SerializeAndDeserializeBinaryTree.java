@@ -44,27 +44,27 @@ class TreeNode {
 public class SerializeAndDeserializeBinaryTree {
     // Encodes a tree to a single string.
     public String serialize(TreeNode root) {
-        //±ß½çÅĞ¶Ï
+        //è¾¹ç•Œåˆ¤æ–­
         if (root == null) {
             return "";
         }
         StringBuffer res = new StringBuffer();
-        //¶¨Òå¶ÓÁĞ£¬²ã´Î±éÀú
+        //å®šä¹‰é˜Ÿåˆ—ï¼Œå±‚æ¬¡éå†
         Queue<TreeNode> queue = new LinkedList<>();
-        //¼ÓÈë¸ù½Úµã
+        //åŠ å…¥æ ¹èŠ‚ç‚¹
         queue.offer(root);
 
         while (!queue.isEmpty()) {
-            //µ¯³ö½Úµã
+            //å¼¹å‡ºèŠ‚ç‚¹
             TreeNode cur = queue.poll();
-            //½ÚµãÎªnull£¬Ôò¸üĞÂ×Ö·û´®£¬¼ÌĞø
+            //èŠ‚ç‚¹ä¸ºnullï¼Œåˆ™æ›´æ–°å­—ç¬¦ä¸²ï¼Œç»§ç»­
             if (cur == null) {
                 res.append("null ");
                 continue;
             }
-            //¼ÓÈëÖµ
+            //åŠ å…¥å€¼
             res.append(String.valueOf(cur.val) + " ");
-            //°Ñ×óÓÒ½Úµã¼ÓÈëµ½¶ÓÁĞÀï
+            //æŠŠå·¦å³èŠ‚ç‚¹åŠ å…¥åˆ°é˜Ÿåˆ—é‡Œ
             queue.offer(cur.left);
             queue.offer(cur.right);
 
@@ -78,30 +78,30 @@ public class SerializeAndDeserializeBinaryTree {
     // Decodes your encoded data to tree.
     public TreeNode deserialize(String data) {
 
-        //±ß½çÅĞ¶Ï
+        //è¾¹ç•Œåˆ¤æ–­
         if (data == "") {
             return null;
         }
-        //×Ö·û´®ÇĞ·Ö
+        //å­—ç¬¦ä¸²åˆ‡åˆ†
         String[] str = data.split(" ");
 
         Queue<TreeNode> queue = new LinkedList<>();
-        //°ÑÊ×¸ö×Ö·û´®·ÅÈëµ½¶ÓÁĞÀï£¬ÒòÎªÊ××Ö·û´®¿Ï¶¨ÊÇ¸ù½Úµã
+        //æŠŠé¦–ä¸ªå­—ç¬¦ä¸²æ”¾å…¥åˆ°é˜Ÿåˆ—é‡Œï¼Œå› ä¸ºé¦–å­—ç¬¦ä¸²è‚¯å®šæ˜¯æ ¹èŠ‚ç‚¹
         TreeNode root = new TreeNode(Integer.parseInt(str[0]));
         queue.offer(root);
-        //Ñ­»·×Ö·û´®
+        //å¾ªç¯å­—ç¬¦ä¸²
         for (int i = 1; i < str.length; i++) {
-            //µ¯³ö½Úµã
+            //å¼¹å‡ºèŠ‚ç‚¹
             TreeNode cur = queue.poll();
-            //×Ö·û´®²»ÎªnullµÄÇé¿öÏÂ
+            //å­—ç¬¦ä¸²ä¸ä¸ºnullçš„æƒ…å†µä¸‹
             if (!str[i].equals("null")) {
-                //¸üĞÂ½Úµã×ó×ÓÊ÷£¬²¢¼ÓÈëµ½¶ÓÁĞÀï
+                //æ›´æ–°èŠ‚ç‚¹å·¦å­æ ‘ï¼Œå¹¶åŠ å…¥åˆ°é˜Ÿåˆ—é‡Œ
                 cur.left = new TreeNode(Integer.parseInt(str[i]));
                 queue.offer(cur.left);
             }
-            //¸üĞÂiÖµ
+            //æ›´æ–°iå€¼
             if (!str[++i].equals("null")) {
-                //¸üĞÂ½ÚµãÓÒ×ÓÊ÷£¬²¢¼ÓÈëµ½¶ÓÁĞÀï
+                //æ›´æ–°èŠ‚ç‚¹å³å­æ ‘ï¼Œå¹¶åŠ å…¥åˆ°é˜Ÿåˆ—é‡Œ
                 cur.right = new TreeNode(Integer.parseInt(str[i]));
                 queue.offer(cur.right);
             }

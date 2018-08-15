@@ -30,12 +30,12 @@ package amazon.medium;
  */
 
 /**
- * ¿¼µã£º±ß½çÌõ¼ş 1¡¢Õı¸ººÅ 2¡¢Ô½½ç 3¡¢×ÖÄ¸ " 12v"
+ * è€ƒç‚¹ï¼šè¾¹ç•Œæ¡ä»¶ 1ã€æ­£è´Ÿå· 2ã€è¶Šç•Œ 3ã€å­—æ¯ " 12v"
  */
 public class StringtoInteger {
     public int myAtoi(String str) {
 
-        //±ß½çÌõ¼ş
+        //è¾¹ç•Œæ¡ä»¶
         if (str == null || str.length() == 0) {
             return 0;
         }
@@ -44,7 +44,7 @@ public class StringtoInteger {
         long res = 0;
         int sign = 1;
         int start = 0;
-        //Õı¸ººÅÊ××ÖÄ¸
+        //æ­£è´Ÿå·é¦–å­—æ¯
         char firstLetter = str.charAt(0);
         if (firstLetter == '+') {
             sign = 1;
@@ -54,25 +54,25 @@ public class StringtoInteger {
             start++;
         }
 
-        //Ñ­»·Ã¿¸ö×Ö·û
+        //å¾ªç¯æ¯ä¸ªå­—ç¬¦
         for (int i = start; i < str.length(); i++) {
-            //×ÖÄ¸Êı×ÖÅĞ¶Ï
+            //å­—æ¯æ•°å­—åˆ¤æ–­
             if (!Character.isDigit(str.charAt(i))) {
                 return (int) res * sign;
             }
-            //×ª»»Êı×Ö
+            //è½¬æ¢æ•°å­—
             res = res * 10 + str.charAt(i) - '0';
-            //Ô½½çÅĞ¶Ï£¬´óÓÚ×î´óÖµ£¬·µ»Ø×î´óÖµ
+            //è¶Šç•Œåˆ¤æ–­ï¼Œå¤§äºæœ€å¤§å€¼ï¼Œè¿”å›æœ€å¤§å€¼
             if (sign == 1 && res > Integer.MAX_VALUE) {
                 return Integer.MAX_VALUE;
             }
-            //Ô½½çÅĞ¶Ï£¬Ğ¡ÓÚ×îĞ¡Öµ£¬·µ»Ø×îĞ¡Öµ
+            //è¶Šç•Œåˆ¤æ–­ï¼Œå°äºæœ€å°å€¼ï¼Œè¿”å›æœ€å°å€¼
             if (sign == -1 && res > Integer.MAX_VALUE) {
                 return Integer.MIN_VALUE;
             }
 
         }
-        //·µ»Ø½á¹û
+        //è¿”å›ç»“æœ
         return (int) res * sign;
 
 

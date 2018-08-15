@@ -28,7 +28,7 @@ package amazon.easy;
 public class MergeTwoBinaryTrees {
     public TreeNode mergeTrees(TreeNode t1, TreeNode t2) {
 
-        //边界判断，如果t1为null，返回t2,反之返回t1
+        //杈圭晫鍒ゆ柇锛屽鏋渢1涓簄ull锛岃繑鍥瀟2,鍙嶄箣杩斿洖t1
         if (t1 == null) {
             return t2;
         }
@@ -37,9 +37,9 @@ public class MergeTwoBinaryTrees {
         }
 
         TreeNode newTree = new TreeNode(t1.val + t2.val);
-        //左子树递归创建
+        //宸﹀瓙鏍戦�掑綊鍒涘缓
         newTree.left = mergeTrees(t1.left, t2.left);
-        //右子树递归创建
+        //鍙冲瓙鏍戦�掑綊鍒涘缓
         newTree.right = mergeTrees(t1.right, t2.right);
 
         return newTree;

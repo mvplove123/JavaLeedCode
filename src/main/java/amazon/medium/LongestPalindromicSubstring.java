@@ -19,18 +19,18 @@ package amazon.medium;
  * <p/>
  * Output: "bb"
  * <p/>
- * ¿ÉÒÔÓÃdp×ö£¬¶şÎ¬Êı×é£»Ò²¿ÉÒÔÓÃÖĞĞÄÀ©É¢·¨£¬×óÓÒÀ©É¢£¨¿¼ÂÇÆæÊıÅ¼ÊıĞÎÊ½£©
+ * å¯ä»¥ç”¨dpåšï¼ŒäºŒç»´æ•°ç»„ï¼›ä¹Ÿå¯ä»¥ç”¨ä¸­å¿ƒæ‰©æ•£æ³•ï¼Œå·¦å³æ‰©æ•£ï¼ˆè€ƒè™‘å¥‡æ•°å¶æ•°å½¢å¼ï¼‰
  */
 public class LongestPalindromicSubstring {
     String res = "";
 
     public String longestPalindrome(String s) {
 
-        //Ñ­»·Ã¿Ò»¸ö×Ö·û
+        //å¾ªç¯æ¯ä¸€ä¸ªå­—ç¬¦
         for (int i = 0; i < s.length(); i++) {
-            //¼ÙÉèÊÇÆæÊıĞĞ
+            //å‡è®¾æ˜¯å¥‡æ•°è¡Œ
             helper(s, i, i);
-            //¼ÙÉèÊÇÅ¼ÊıĞĞ
+            //å‡è®¾æ˜¯å¶æ•°è¡Œ
             helper(s, i, i + 1);
         }
 
@@ -40,13 +40,13 @@ public class LongestPalindromicSubstring {
 
     public void helper(String s, int left, int right) {
 
-        //ÅĞ¶Ï»ØÎÄÊ×Î²Î»ÖÃ£¬×óÓÒÏàµÈÔòÍ¬Ê±À©´ó·¶Î§£¬Ö±½Ó×óÓÒ²»ÏàµÈ
+        //åˆ¤æ–­å›æ–‡é¦–å°¾ä½ç½®ï¼Œå·¦å³ç›¸ç­‰åˆ™åŒæ—¶æ‰©å¤§èŒƒå›´ï¼Œç›´æ¥å·¦å³ä¸ç›¸ç­‰
         while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
             left--;
             right++;
         }
 
-        //»ñÈ¡×Ö·û´®
+        //è·å–å­—ç¬¦ä¸²
         String cur = s.substring(left + 1, right);
 
         if (cur.length() > res.length()) {

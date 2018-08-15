@@ -1,7 +1,4 @@
-package airbnb;
-
-import com.amazonaws.services.ec2.model.InternetGateway;
-
+package airbnb.easy;
 import java.util.HashMap;
 import java.util.Map;
 

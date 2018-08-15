@@ -10,22 +10,22 @@ package amazon.easy;
 public class LinkedListCycle {
     public boolean hasCycle(ListNode head) {
 
-        //±ß½çÌõ¼ş
+        //è¾¹ç•Œæ¡ä»¶
         if (head == null) {
             return false;
         }
-        //×ßÒ»²½
+        //èµ°ä¸€æ­¥
         ListNode walker = head;
-        //×ßÁ½²½
+        //èµ°ä¸¤æ­¥
         ListNode runner = head;
 
-        //¶¼²»ÎªnullµÄÌõ¼şÏÂ
+        //éƒ½ä¸ä¸ºnullçš„æ¡ä»¶ä¸‹
         while (runner.next != null && runner.next.next != null) {
 
-            //Ò»Ö±×ß²½
+            //ä¸€ç›´èµ°æ­¥
             walker = walker.next;
             runner = runner.next.next;
-            //Èç¹ûÏàÓö£¬ÒâÎ¶×Å×ßÁ½²½µÄÓÖ×·ÉÏ×ßÒ»²½µÄ£¬ÔòÓĞ»·
+            //å¦‚æœç›¸é‡ï¼Œæ„å‘³ç€èµ°ä¸¤æ­¥çš„åˆè¿½ä¸Šèµ°ä¸€æ­¥çš„ï¼Œåˆ™æœ‰ç¯
             if (walker == runner) {
                 return true;
             }

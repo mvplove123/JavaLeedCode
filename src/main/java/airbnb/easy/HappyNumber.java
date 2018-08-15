@@ -1,4 +1,4 @@
-package airbnb;
+package airbnb.easy;
 
 import java.util.HashSet;
 import java.util.Set;

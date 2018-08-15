@@ -23,7 +23,7 @@ public class PalindromeLinkedList {
             fast = fast.next.next;
             slow = slow.next;
         }
-        //链表反转
+        //閾捐〃鍙嶈浆
         slow = reverse(slow);
 
         while (head != null && slow != null) {
@@ -39,7 +39,7 @@ public class PalindromeLinkedList {
     }
 
     /**
-     * 反转链表
+     * 鍙嶈浆閾捐〃
      *
      * @param head
      * @return

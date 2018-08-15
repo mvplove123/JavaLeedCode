@@ -15,13 +15,13 @@ import java.util.List;
 public class LetterCombinationsOFaPhoneNumber {
 
     /**
-     * Ó³Éämapping
+     * æ˜ å°„mapping
      */
     String[] mapping = {"0", "1", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
 
     public List<String> letterCombinations(String digits) {
         List<String> res = new ArrayList<>();
-        //±ß½çÅĞ¶Ï
+        //è¾¹ç•Œåˆ¤æ–­
         if (digits == null || digits.length() == 0) {
             return res;
         }
@@ -31,15 +31,15 @@ public class LetterCombinationsOFaPhoneNumber {
     }
 
     private void helper(List<String> res, String digits, String s, int index) {
-        //indexÎªdigitsµÄË÷Òı£¬Èç¹ûË÷ÒıµÄ³¤¶ÈµÈÓÚÊı×ÖµÄ³¤¶È
+        //indexä¸ºdigitsçš„ç´¢å¼•ï¼Œå¦‚æœç´¢å¼•çš„é•¿åº¦ç­‰äºæ•°å­—çš„é•¿åº¦
         if (index == digits.length()) {
             res.add(s);
             return;
         }
 
-        //»ñÈ¡Êı×Ö¶ÔÓ¦µÄ¼üÅÌ×ÖÄ¸´® eg:2¶ÔÓ¦abc
+        //è·å–æ•°å­—å¯¹åº”çš„é”®ç›˜å­—æ¯ä¸² eg:2å¯¹åº”abc
         String letters = mapping[digits.charAt(index) - '0'];
-        //¶Ô×Ö·û´®abc½øĞĞÑ­»·
+        //å¯¹å­—ç¬¦ä¸²abcè¿›è¡Œå¾ªç¯
         for (int i = 0; i < letters.length(); i++) {
             helper(res, digits, s + letters.charAt(i), index + 1);
         }
@@ -50,7 +50,7 @@ public class LetterCombinationsOFaPhoneNumber {
 
     public List<String> letterCombinations1(String digits) {
         LinkedList<String> res = new LinkedList<>();
-        //±ß½çÅĞ¶Ï
+        //è¾¹ç•Œåˆ¤æ–­
         if (digits == null || digits.length() == 0) {
             return res;
         }
@@ -59,13 +59,13 @@ public class LetterCombinationsOFaPhoneNumber {
 
         for (int i = 0; i < digits.length(); i++) {
 
-            //»ñÈ¡µÚiÎ»Êı×Ö
+            //è·å–ç¬¬iä½æ•°å­—
             int num = digits.charAt(i) - '0';
-            //×Ö·û´®µÄ³¤¶ÈµÈÓÚÊı×ÖµÄË÷Òı
+            //å­—ç¬¦ä¸²çš„é•¿åº¦ç­‰äºæ•°å­—çš„ç´¢å¼•
             while (res.peek().length() == i) {
-                //ÒÆ³ıµ±Ç°×Ö·ûÓÃÓÚÆ´½ÓĞÂ×Ö·û´®
+                //ç§»é™¤å½“å‰å­—ç¬¦ç”¨äºæ‹¼æ¥æ–°å­—ç¬¦ä¸²
                 String t = res.remove();
-                //¶ÔÃ¿¸öÊı×Ö¶ÔÓ¦µÄ×Ö·û´®½øĞĞÃ¶¾Ù
+                //å¯¹æ¯ä¸ªæ•°å­—å¯¹åº”çš„å­—ç¬¦ä¸²è¿›è¡Œæšä¸¾
                 for (char s : mapping[num].toCharArray()) {
                     res.add(t + s);
                 }

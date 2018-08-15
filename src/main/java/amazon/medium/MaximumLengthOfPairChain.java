@@ -22,25 +22,25 @@ import java.util.Arrays;
  */
 public class MaximumLengthOfPairChain {
     /**
-     * 动态规划，dp
+     * 鍔ㄦ�佽鍒掞紝dp
      * @param pairs
      * @return
      */
     public int findLongestChain(int[][] pairs) {
 
-        //边界条件
+        //杈圭晫鏉′欢
         if (pairs == null || pairs.length == 0) {
             return 0;
 
         }
-        //排序
+        //鎺掑簭
         Arrays.sort(pairs, (a, b) -> (a[0] - b[0]));
 
-        //初始化并设值为1
+        //鍒濆鍖栧苟璁惧�间负1
         int[] dp = new int[pairs.length];
         Arrays.fill(dp, 1);
 
-        //循环
+        //寰幆
         for (int i = 0; i < dp.length; i++) {
             for (int j = 0; j < i; j++) {
                 dp[i] = Math.max(dp[i], pairs[i][0] > pairs[j][1] ? dp[j] + 1 : dp[j]);

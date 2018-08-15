@@ -30,13 +30,13 @@ import java.util.Map;
  * Note: You may assume the sum of values in any subtree is in the range of 32-bit signed integer.
  */
 public class MostFrequentSubtreeSum {
-    //¶¨ÒåmapÓÃÓÚ´æºÍ³öÏÖµÄÆµ´Î
+    //å®šä¹‰mapç”¨äºå­˜å’Œå‡ºç°çš„é¢‘æ¬¡
     Map<Integer, Integer> map = new HashMap<>();
-    //³õÊ¼»¯Æµ´Î
+    //åˆå§‹åŒ–é¢‘æ¬¡
     int fre = 0;
 
     public int[] findFrequentTreeSum(TreeNode root) {
-        //±ß½çÅĞ¶Ï
+        //è¾¹ç•Œåˆ¤æ–­
         if (root == null) {
             return new int[0];
         }
@@ -44,7 +44,7 @@ public class MostFrequentSubtreeSum {
         List<Integer> res = new ArrayList<>();
 
         helper(res, root);
-        //Ñ­»·list×ª»»Êı×é
+        //å¾ªç¯listè½¬æ¢æ•°ç»„
         int ret[] = new int[res.size()];
         for (int i = 0; i < res.size(); i++) {
             ret[i] = res.get(i);
@@ -53,7 +53,7 @@ public class MostFrequentSubtreeSum {
     }
 
     /**
-     * µİ¹éµ÷ÓÃ£¬½øĞĞÇóµÃÆµ´Î×î¸ßµÄºÍ
+     * é€’å½’è°ƒç”¨ï¼Œè¿›è¡Œæ±‚å¾—é¢‘æ¬¡æœ€é«˜çš„å’Œ
      *
      * @param res
      * @param root
@@ -63,14 +63,14 @@ public class MostFrequentSubtreeSum {
             return;
         }
 
-        //ÏÈÇó¸ù½ÚµãµÄºÍ
+        //å…ˆæ±‚æ ¹èŠ‚ç‚¹çš„å’Œ
         int sum = computeSum(root);
         map.put(sum, map.getOrDefault(sum, 0) + 1);
-        //Æµ´ÎºÍµ±Ç°Æµ´ÎÏàÍ¬£¬ÔòÌí¼Ó
+        //é¢‘æ¬¡å’Œå½“å‰é¢‘æ¬¡ç›¸åŒï¼Œåˆ™æ·»åŠ 
         if (map.get(sum) == fre) {
             res.add(sum);
         }
-        //Æµ´Î´óÓÚµ±Ç°Æµ´Î£¬ÔòÇå¿Õ£¬ÖØĞÂÌí¼Ó
+        //é¢‘æ¬¡å¤§äºå½“å‰é¢‘æ¬¡ï¼Œåˆ™æ¸…ç©ºï¼Œé‡æ–°æ·»åŠ 
         if (map.get(sum) > fre) {
             res.clear();
             res.add(sum);
@@ -86,7 +86,7 @@ public class MostFrequentSubtreeSum {
 
 
     /**
-     * ¼ÆËã¸÷¸ö½ÚµãµÄºÍ£¬¸ù½Úµã£¬×ó×Ó½Úµã£¬ÓÒ×Ó½Úµã
+     * è®¡ç®—å„ä¸ªèŠ‚ç‚¹çš„å’Œï¼Œæ ¹èŠ‚ç‚¹ï¼Œå·¦å­èŠ‚ç‚¹ï¼Œå³å­èŠ‚ç‚¹
      *
      * @param root
      * @return

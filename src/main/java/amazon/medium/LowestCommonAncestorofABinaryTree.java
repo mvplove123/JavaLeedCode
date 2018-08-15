@@ -5,8 +5,8 @@ package amazon.medium;
  * <p/>
  * Given a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree.
  * <p/>
- * According to the definition of LCA on Wikipedia: ¡°The lowest common ancestor is defined between two nodes v and w
- * as the lowest node in T that has both v and w as descendants (where we allow a node to be a descendant of itself).¡±
+ * According to the definition of LCA on Wikipedia: â€œThe lowest common ancestor is defined between two nodes v and w
+ * as the lowest node in T that has both v and w as descendants (where we allow a node to be a descendant of itself).â€
  * <p/>
  * _______3______
  * /              \
@@ -33,12 +33,12 @@ class TreeNode {
 }
 
 /**
- * ²ÉÓÃºóĞò±éÀú£¬×óÓÒ¸ù
+ * é‡‡ç”¨ååºéå†ï¼Œå·¦å³æ ¹
  */
 public class LowestCommonAncestorofABinaryTree {
 
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        //ÅĞ¶Ï±ß½çÌõ¼ş
+        //åˆ¤æ–­è¾¹ç•Œæ¡ä»¶
         if (root == null || root == p || root == q) {
             return root;
         }

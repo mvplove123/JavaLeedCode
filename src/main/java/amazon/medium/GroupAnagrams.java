@@ -16,7 +16,7 @@ import java.util.*;
  * ["bat"]
  * ]
  * Note: All inputs will be in lower-case.
- * ÏÈÅÅĞò£¬ÔÙÓÃhashmap
+ * å…ˆæ’åºï¼Œå†ç”¨hashmap
  */
 public class GroupAnagrams {
     public List<List<String>> groupAnagrams(String[] strs) {
@@ -28,7 +28,7 @@ public class GroupAnagrams {
 
         Map<String, Integer> map = new HashMap<>();
         for (String str : strs) {
-            //ÅÅĞò
+            //æ’åº
             char[] ch = str.toCharArray();
             Arrays.sort(ch);
             String s = new String(ch);
@@ -39,9 +39,9 @@ public class GroupAnagrams {
 
             } else {
                 List<String> list = new ArrayList<>();
-                //Ìí¼Ó×Ö·û´®
+                //æ·»åŠ å­—ç¬¦ä¸²
                 list.add(str);
-                //·ÅÈëmapÀï£¬res.size ¼ÇÂ¼µÄÊÇres¸÷¸ö·ÖÀàµÄË÷Òı£¬ÏàÍ¬µÄ×Ö·û´®¾ßÓĞÏàÍ¬µÄË÷Òı
+                //æ”¾å…¥mapé‡Œï¼Œres.size è®°å½•çš„æ˜¯reså„ä¸ªåˆ†ç±»çš„ç´¢å¼•ï¼Œç›¸åŒçš„å­—ç¬¦ä¸²å…·æœ‰ç›¸åŒçš„ç´¢å¼•
                 map.put(s, res.size());
                 res.add(list);
 

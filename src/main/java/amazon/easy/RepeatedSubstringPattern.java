@@ -25,23 +25,23 @@ package amazon.easy;
 public class RepeatedSubstringPattern {
     public boolean repeatedSubstringPattern(String s) {
 
-        //¼ÆËã×Ö·û´®³¤¶È
+        //è®¡ç®—å­—ç¬¦ä¸²é•¿åº¦
         int l = s.length();
-        //°ëÊýÑ­»·
+        //åŠæ•°å¾ªçŽ¯
         for (int i = l / 2; i >= 1; i--) {
-            //·ûºÏÌõ¼þµÄ×Ó´®£¬Ò»¶¨ÊÇ³¤¶ÈÄÜ±»Õû³ýµÄÊý
+            //ç¬¦åˆæ¡ä»¶çš„å­ä¸²ï¼Œä¸€å®šæ˜¯é•¿åº¦èƒ½è¢«æ•´é™¤çš„æ•°
             if (l % i == 0) {
-                //¼ÆËã¸Ã³¤¶ÈiµÄ×Ó´®ÖØ¸´µÄ´ÎÊý
+                //è®¡ç®—è¯¥é•¿åº¦içš„å­ä¸²é‡å¤çš„æ¬¡æ•°
                 int m = l / i;
-                //»ñÈ¡Ê×¸ö×Ó´®
+                //èŽ·å–é¦–ä¸ªå­ä¸²
                 String subS = s.substring(0, i);
                 StringBuilder sb = new StringBuilder();
 
-                //¸ù¾Ý´ÎÊýÆ´½ÓÕû¸ö×Ö·û´®
+                //æ ¹æ®æ¬¡æ•°æ‹¼æŽ¥æ•´ä¸ªå­—ç¬¦ä¸²
                 for (int j = 0; j < m; j++) {
                     sb.append(subS);
                 }
-                //×Ö·û´®ºÍÔ­Ê¼×Ö·û´®ÏàÍ¬£¬Ôò·µ»Øtrue
+                //å­—ç¬¦ä¸²å’ŒåŽŸå§‹å­—ç¬¦ä¸²ç›¸åŒï¼Œåˆ™è¿”å›žtrue
                 if (sb.toString().equals(s)) {
                     return true;
                 }

@@ -26,28 +26,28 @@ class ListNode {
 public class MergeKSortedLists {
     public ListNode mergeKLists(ListNode[] lists) {
 
-        //ÅĞ¶Ï±ß½ç
+        //åˆ¤æ–­è¾¹ç•Œ
         if (lists == null || lists.length == 0) {
             return null;
         }
-        //¶¨ÒåÓÅÏÈ¶ÓÁĞ£¬ÅÅĞò·½Ê½
+        //å®šä¹‰ä¼˜å…ˆé˜Ÿåˆ—ï¼Œæ’åºæ–¹å¼
         PriorityQueue<ListNode> queue = new PriorityQueue<>(lists.length, (a, b) -> a.val - b.val);
 
-        //Á´±í¼ÓÈë¶ÓÁĞ
+        //é“¾è¡¨åŠ å…¥é˜Ÿåˆ—
         for (ListNode list : lists) {
             if(list !=null){
                 queue.add(list);
             }
         }
-        //¶¨Òå·µ»Ø½á¹û
+        //å®šä¹‰è¿”å›ç»“æœ
         ListNode res = new ListNode(0);
-        //¶¨Òåµ±Ç°Á´±í£¬³õÊ¼»¯Îªres,ÏàÍ¬µÄÒıÓÃÖ¸ÏòÍ¬Ò»¸öµØÖ·
+        //å®šä¹‰å½“å‰é“¾è¡¨ï¼Œåˆå§‹åŒ–ä¸ºres,ç›¸åŒçš„å¼•ç”¨æŒ‡å‘åŒä¸€ä¸ªåœ°å€
         ListNode cur = res;
 
         while (!queue.isEmpty()) {
-            //µ¯³ö¶ÓÁĞµÚÒ»¸öÁ´±í²¢¸³Öµ¸øcurµÄÏÂÒ»¸ö½Úµã
+            //å¼¹å‡ºé˜Ÿåˆ—ç¬¬ä¸€ä¸ªé“¾è¡¨å¹¶èµ‹å€¼ç»™curçš„ä¸‹ä¸€ä¸ªèŠ‚ç‚¹
             cur.next = queue.poll();
-            //¸üĞÂcurµÄµØÖ·ÒıÓÃ
+            //æ›´æ–°curçš„åœ°å€å¼•ç”¨
             cur = cur.next;
             if (cur.next != null) {
                 queue.add(cur.next);

@@ -22,7 +22,7 @@ import java.util.Queue;
 public class BinaryTreeRightSideView {
 
     /**
-     * Éî¶ÈÓÅÏÈ±éÀú
+     * æ·±åº¦ä¼˜å…ˆéå†
      *
      * @param root
      * @return
@@ -41,17 +41,17 @@ public class BinaryTreeRightSideView {
         if (root == null) {
             return;
         }
-        //³¤¶ÈºÍ²ã¼¶ÏàµÈ
+        //é•¿åº¦å’Œå±‚çº§ç›¸ç­‰
         if (res.size() == level) {
             res.add(root.val);
         }
-        //ÏÈµİ¹éµ÷ÓÃÓÒ±ß£¬ÕâÑù¾Í°ÑËùÓĞÓÒ±ßµÄÖµ¼Ó½øÈ¥£¬µ÷ÓÃ×ó±ßµÄÊ±ºò£¬¾Í»á³öÏÖ²ã´ÎºÍ³¤¶È²»Í¬£¬½ø¶ø²»ÄÜÌí¼ÓÖµ
+        //å…ˆé€’å½’è°ƒç”¨å³è¾¹ï¼Œè¿™æ ·å°±æŠŠæ‰€æœ‰å³è¾¹çš„å€¼åŠ è¿›å»ï¼Œè°ƒç”¨å·¦è¾¹çš„æ—¶å€™ï¼Œå°±ä¼šå‡ºç°å±‚æ¬¡å’Œé•¿åº¦ä¸åŒï¼Œè¿›è€Œä¸èƒ½æ·»åŠ å€¼
         helper(res, root.right, level + 1);
         helper(res, root.left, level + 1);
     }
 
     /**
-     * ¹ã¶ÈÓÅÏÈ±éÀú
+     * å¹¿åº¦ä¼˜å…ˆéå†
      *
      * @param root
      * @return
@@ -62,26 +62,26 @@ public class BinaryTreeRightSideView {
             return res;
         }
 
-        //¶¨Òå¶ÓÁĞ
+        //å®šä¹‰é˜Ÿåˆ—
         Queue<TreeNode> queue = new LinkedList<>();
-        //Ìí¼Ó¸ù½Úµã
+        //æ·»åŠ æ ¹èŠ‚ç‚¹
         queue.offer(root);
-        //¶ÓÁĞ²»Îª¿ÕµÄÇ°ÌáÏÂ
+        //é˜Ÿåˆ—ä¸ä¸ºç©ºçš„å‰æä¸‹
         while (!queue.isEmpty()) {
-            //»ñÈ¡¶ÓÁĞ³¤¶È
+            //è·å–é˜Ÿåˆ—é•¿åº¦
             int size = queue.size();
             for (int i = 0; i < size; i++) {
-                //µ¯³öÒ»¸ö½Úµã
+                //å¼¹å‡ºä¸€ä¸ªèŠ‚ç‚¹
                 TreeNode cur = queue.poll();
-                //ÏÈ°Ñ¸ù½Úµã²åÈë£¬0Ò²ÒâÎ¶×ÅÓÒ½Úµã
+                //å…ˆæŠŠæ ¹èŠ‚ç‚¹æ’å…¥ï¼Œ0ä¹Ÿæ„å‘³ç€å³èŠ‚ç‚¹
                 if (i == 0) {
                     res.add(cur.val);
                 }
-                //°ÑÓÒ±ßµÄ½ÚµãÌí¼Óµ½¶ÓÁĞÀï
+                //æŠŠå³è¾¹çš„èŠ‚ç‚¹æ·»åŠ åˆ°é˜Ÿåˆ—é‡Œ
                 if (cur.right != null) {
                     queue.offer(cur.right);
                 }
-                //°Ñ×ó±ßµÄ½ÚµãÌí¼Óµ½¶ÓÁĞÀï
+                //æŠŠå·¦è¾¹çš„èŠ‚ç‚¹æ·»åŠ åˆ°é˜Ÿåˆ—é‡Œ
                 if (cur.left != null) {
                     queue.offer(cur.left);
                 }

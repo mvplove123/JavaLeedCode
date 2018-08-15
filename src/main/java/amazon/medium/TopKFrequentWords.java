@@ -21,38 +21,38 @@ import java.util.*;
  * Explanation: "the", "is", "sunny" and "day" are the four most frequent words,
  * with the number of occurrence being 4, 3, 2 and 1 respectively.
  * Note:
- * You may assume k is always valid, 1 ¡Ü k ¡Ü number of unique elements.
+ * You may assume k is always valid, 1 â‰¤ k â‰¤ number of unique elements.
  * Input words contain only lowercase letters.
  * Follow up:
  * Try to solve it in O(n log k) time and O(n) extra space.
  * <p/>
- * ÔËÓÃhashmap+priorityQueue
+ * è¿ç”¨hashmap+priorityQueue
  */
 public class TopKFrequentWords {
     public List<String> topKFrequent(String[] words, int k) {
 
         List<String> res = new ArrayList<>();
-        //Í³¼Æ¸÷¸öwordµÄÊıÁ¿
+        //ç»Ÿè®¡å„ä¸ªwordçš„æ•°é‡
         HashMap<String, Integer> map = new HashMap<>();
         for (String word : words) {
             map.put(word, map.getOrDefault(word, 1) + 1);
         }
-        //¶¨ÒåÓÅÏÈ¶ÓÁĞ±È½Ï¸ñÊ½£¬ÖµÏàµÈ£¬Ôò±È½Ïkey·ñÔò±È½ÏÖµ
+        //å®šä¹‰ä¼˜å…ˆé˜Ÿåˆ—æ¯”è¾ƒæ ¼å¼ï¼Œå€¼ç›¸ç­‰ï¼Œåˆ™æ¯”è¾ƒkeyå¦åˆ™æ¯”è¾ƒå€¼
         PriorityQueue<Map.Entry<String, Integer>> pq = new PriorityQueue<>(
                 (a, b) -> a.getValue() == b.getValue() ? b.getKey().compareTo(a.getKey()) : a.getValue() - b.getValue()
         );
 
-        //Ñ­»·mapÉèÈëµ½ÓÅÏÈ¶ÓÁĞÀï
+        //å¾ªç¯mapè®¾å…¥åˆ°ä¼˜å…ˆé˜Ÿåˆ—é‡Œ
         for (Map.Entry<String, Integer> entry : map.entrySet()) {
             pq.offer(entry);
-            //Èç¹û³¤¶È´óÓÚk£¬ÔòÒâÎ¶×ÅºóÃæµÄÔªËØ¶¼µ¯³öÈ¥
+            //å¦‚æœé•¿åº¦å¤§äºkï¼Œåˆ™æ„å‘³ç€åé¢çš„å…ƒç´ éƒ½å¼¹å‡ºå»
             if (pq.size() > k) {
                 pq.poll();
             }
         }
-        //Ñ­»·¶ÓÁĞ
+        //å¾ªç¯é˜Ÿåˆ—
         while (!pq.isEmpty()) {
-            //pop³öÈ¥²¢²åÈëµ½listÖĞ
+            //popå‡ºå»å¹¶æ’å…¥åˆ°listä¸­
             res.add(0, pq.poll().getKey());
         }
         return res;

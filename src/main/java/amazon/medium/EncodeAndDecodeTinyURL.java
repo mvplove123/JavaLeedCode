@@ -19,18 +19,18 @@ import java.util.List;
  * shorten, append to the database, and return the primary key number. (the database is very easy to distribute to
  * multiple machine like HBase, or even you can use the raw file system to store data and improve performance by
  * shard and replica).
- * Note, it��s meaningless to promise the same long url to be shorten as the same short url. if you do the promise and
+ * Note, it’s meaningless to promise the same long url to be shorten as the same short url. if you do the promise and
  * use something like hash to check existing, the benefit is must less than the cost.
- * Note: if you want the shorted url contains ��0-9a-zA-Z�� instead of ��0-9��, then you need to use 62 number system,
- * not 10 number system(decimal) to convert the primary key number. like 123->��123�� in decimal, 123->��1Z�� in 62
- * number system (or ��0001Z�� for align).
+ * Note: if you want the shorted url contains ‘0-9a-zA-Z’ instead of ‘0-9’, then you need to use 62 number system,
+ * not 10 number system(decimal) to convert the primary key number. like 123->‘123’ in decimal, 123->‘1Z’ in 62
+ * number system (or ‘0001Z’ for align).
  * <p/>
- * ������java�е�Сurl�����������Ҳ����ҵ�����Ƶķ���������ҵ�У�����url����Ĵ󲿷���ͨ�����ݿ⣬һ�����Զ����ӳ�����Ϊ������ÿ����Ҫ���̳�URLʱ��׷�ӵ����ݿⲢ�����������롣
- * �����ݿ�ǳ����׷ַ�����hbase�����Ķ�̨������������������ʹ��ԭʼ�ļ�ϵͳ�洢���ݲ�ͨ����Ƭ�͸���������ܣ���
+ * 下面是java中的小url解决方案，这也是行业中类似的方法。在行业中，缩短url服务的大部分是通过数据库，一个是自动增加长号作为主键。每当需要缩短长URL时，追加到数据库并返回主键号码。
+ * （数据库非常容易分发到像hbase这样的多台机器，或者甚至可以使用原始文件系统存储数据并通过分片和副本提高性能）。
  * <p/>
- * ��ע�⣬��ŵ��ͬһ���ϳ�����ַ����Ϊ��ͬ�Ķ���ַ��û������ġ���������˳�ŵ����ʹ�ù�ϣ��������еĺô�����ô��Ǳ�����ڳɱ���
- * ע�⣺��������url����'0-9a-za-z'������'0-9'����ô����Ҫʹ��62����ϵͳ��������10����ϵͳ��ʮ���ƣ���ת���������롣��123  - >'123'��ʮ�����У�123  -
- * >'1z'��62����ϵͳ����'0001z'���룩��
+ * 请注意，承诺将同一个较长的网址缩短为相同的短网址是没有意义的。如果你做了承诺，并使用哈希来检查现有的好处，则好处是必须低于成本。
+ * 注意：如果你想短url包含'0-9a-za-z'而不是'0-9'，那么你需要使用62号码系统，而不是10号码系统（十进制）来转换主键号码。像123  - >'123'在十进制中，123  -
+ * >'1z'在62数字系统（或'0001z'对齐）。
  */
 public class EncodeAndDecodeTinyURL {
 

@@ -23,7 +23,7 @@ package amazon.medium;
  * <p/>
  * time : O(m * n)
  * space : O(n)
- * ·Ç³£ÖØÒª£¬¿¼µã£ºBFS,DFS
+ * éå¸¸é‡è¦ï¼Œè€ƒç‚¹ï¼šBFS,DFS
  */
 public class NumberOfIslands {
 
@@ -31,19 +31,19 @@ public class NumberOfIslands {
     private int n;
 
     public int numIslands(char[][] grid) {
-        //±ß½çÅĞ¶Ï
+        //è¾¹ç•Œåˆ¤æ–­
         int res = 0;
         if (grid == null || grid.length == 0) {
             return 0;
         }
-        //ĞĞÊı
+        //è¡Œæ•°
         m = grid.length;
-        //ÁĞÊı
+        //åˆ—æ•°
         n = grid[0].length;
-        //Ñ­»·¾ØÕó
+        //å¾ªç¯çŸ©é˜µ
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                //·¢ÏÖÎª1£¬Ôò½øĞĞdfs,Éî¶ÈÓÅÏÈ±éÀú
+                //å‘ç°ä¸º1ï¼Œåˆ™è¿›è¡Œdfs,æ·±åº¦ä¼˜å…ˆéå†
                 if (grid[i][j] == '1') {
                     dfs(grid, i, j);
                     res++;
@@ -55,13 +55,13 @@ public class NumberOfIslands {
     }
 
     private void dfs(char[][] grid, int i, int j) {
-        //±ß½çÅĞ¶Ï£¬ĞĞÁĞ²»ÄÜĞ¡ÓÚ0£¬²»ÄÜÔ½½ç£¬µ±Ç°Öµ²»ÄÜÎª0
+        //è¾¹ç•Œåˆ¤æ–­ï¼Œè¡Œåˆ—ä¸èƒ½å°äº0ï¼Œä¸èƒ½è¶Šç•Œï¼Œå½“å‰å€¼ä¸èƒ½ä¸º0
         if (i < 0 || j < 0 || i >= m || j >= n || grid[i][j] == '0') {
             return;
         }
-        //¶Ôµ±Ç°ÖµÉèÖÃÎª0
+        //å¯¹å½“å‰å€¼è®¾ç½®ä¸º0
         grid[i][j] = '0';
-        //¶Ô¸ÃµãµÄÉÏÏÂ×óÓÒ¶¼½øĞĞµİ¹é²éÕÒ£¬¸üĞÂÎª0
+        //å¯¹è¯¥ç‚¹çš„ä¸Šä¸‹å·¦å³éƒ½è¿›è¡Œé€’å½’æŸ¥æ‰¾ï¼Œæ›´æ–°ä¸º0
         dfs(grid, i, j + 1);
         dfs(grid, i, j - 1);
         dfs(grid, i + 1, j);
@@ -69,19 +69,19 @@ public class NumberOfIslands {
     }
 
     public int numIslands2(char[][] grid) {
-        //±ß½çÅĞ¶Ï
+        //è¾¹ç•Œåˆ¤æ–­
         int res = 0;
         if (grid == null || grid.length == 0) {
             return 0;
         }
-        //ĞĞÊı
+        //è¡Œæ•°
         m = grid.length;
-        //ÁĞÊı
+        //åˆ—æ•°
         n = grid[0].length;
-        //Ñ­»·¾ØÕó
+        //å¾ªç¯çŸ©é˜µ
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                //·¢ÏÖÎª1£¬Ôò½øĞĞdfs,Éî¶ÈÓÅÏÈ±éÀú
+                //å‘ç°ä¸º1ï¼Œåˆ™è¿›è¡Œdfs,æ·±åº¦ä¼˜å…ˆéå†
                 if (grid[i][j] == '1') {
                     bfs(grid, i, j);
                     res++;

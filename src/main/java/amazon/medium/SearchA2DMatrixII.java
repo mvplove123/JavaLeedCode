@@ -24,24 +24,24 @@ package amazon.medium;
 public class SearchA2DMatrixII {
     public boolean searchMatrix(int[][] matrix, int target) {
 
-        //�жϾ���߽�����
+        //判断矩阵边界条件
         if (matrix == null || matrix.length == 0) {
             return false;
         }
-        //�еĳ��Ⱥ��еĳ���
+        //行的长度和列的长度
         int row = 0;
         int col = matrix[0].length - 1;
 
-        //�Ӿ���β�����һ��ѭ��
+        //从矩阵尾部最后一列循环
         while (col >= 0 && row <= matrix.length - 1) {
 
-            //����򷵻�true
+            //相等则返回true
             if (target == matrix[row][col]) {
                 return true;
-                //Ŀ��ֵ���ڵ�ǰֵ����������1��Ŀ��ֵ�������²�,��Ϊ�������������������
+                //目标值大于当前值，则行数加1，目标值在行数下侧,因为行数和列数都是有序的
             } else if (target > matrix[row][col]) {
                 row++;
-                //Ŀ��ֵС�ڵ�ǰֵ����������1��Ŀ��ֵ�����������
+                //目标值小于当前值，则列数减1，目标值在列数的左侧
             } else {
                 col--;
             }

@@ -45,7 +45,7 @@ public class BestTimetoBuyAndSellStock {
      * max subarray problem using Kadane's Algorithm
      * <p/>
      * {a,b,c}
-     * c-a = (b-a)+(c-b) Ïàµ±ÓÚÀÛ¼Ó²îÖµÇóºÍ
+     * c-a = (b-a)+(c-b) ç›¸å½“äºŽç´¯åŠ å·®å€¼æ±‚å’Œ
      *
      * @param prices
      * @return
@@ -55,11 +55,11 @@ public class BestTimetoBuyAndSellStock {
         int maxCur = 0, maxSoFar = 0;
         for (int i = 1; i < prices.length; i++) {
 
-            //ÏàÁÚ²îÖµÀÛ¼ÓÇóºÍ
+            //ç›¸é‚»å·®å€¼ç´¯åŠ æ±‚å’Œ
             maxCur += prices[i] - prices[i - 1];
-            //Èç¹ûÇóºÍµÄÖµÐ¡ÓÚ0£¬Ôò¶Ï¿ªÁ¬Ðøµã£¬´Ó0¿ªÊ¼ÖØÐÂÀÛ¼Ó
+            //å¦‚æžœæ±‚å’Œçš„å€¼å°äºŽ0ï¼Œåˆ™æ–­å¼€è¿žç»­ç‚¹ï¼Œä»Ž0å¼€å§‹é‡æ–°ç´¯åŠ 
             maxCur = Math.max(0, maxCur);
-            //±È½Ïµ±Ç°ÀÛ¼ÓÖµºÍ±£ÁôµÄ×î´óÖµ
+            //æ¯”è¾ƒå½“å‰ç´¯åŠ å€¼å’Œä¿ç•™çš„æœ€å¤§å€¼
             maxSoFar = Math.max(maxCur, maxSoFar);
         }
 

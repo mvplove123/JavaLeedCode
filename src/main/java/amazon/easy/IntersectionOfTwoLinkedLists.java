@@ -8,11 +8,11 @@ package amazon.easy;
  * <p/>
  * For example, the following two linked lists:
  * <p/>
- * A:          a1 ¡ú a2
- * ¨K
- * c1 ¡ú c2 ¡ú c3
- * ¨J
- * B:     b1 ¡ú b2 ¡ú b3
+ * A:          a1 â†’ a2
+ * â†˜
+ * c1 â†’ c2 â†’ c3
+ * â†—
+ * B:     b1 â†’ b2 â†’ b3
  * begin to intersect at node c1.
  * <p/>
  * <p/>
@@ -30,7 +30,7 @@ public class IntersectionOfTwoLinkedLists {
         int lenA = getListLength(headA);
         int lenB = getListLength(headB);
 
-        //Ñ­»·Á´±í£¬ÖªµÀ³¤¶ÈÏàµÈ
+        //å¾ªç¯é“¾è¡¨ï¼ŒçŸ¥é“é•¿åº¦ç›¸ç­‰
         while (lenA < lenB) {
             headB = headB.next;
             lenB--;
@@ -40,7 +40,7 @@ public class IntersectionOfTwoLinkedLists {
             lenA--;
         }
 
-        //³¤¶ÈÏàµÈµÄÁ´±í£¬½øĞĞÖµ±È½Ï£¬²»ÏàµÈ£¬Í¬Ê±Ñ­»·ÏÂÒ»¸ö
+        //é•¿åº¦ç›¸ç­‰çš„é“¾è¡¨ï¼Œè¿›è¡Œå€¼æ¯”è¾ƒï¼Œä¸ç›¸ç­‰ï¼ŒåŒæ—¶å¾ªç¯ä¸‹ä¸€ä¸ª
         while (headA != headB) {
             headA = headA.next;
             headB = headB.next;
@@ -50,7 +50,7 @@ public class IntersectionOfTwoLinkedLists {
     }
 
     /**
-     * »ñÈ¡Á´±íµÄ³¤¶È
+     * è·å–é“¾è¡¨çš„é•¿åº¦
      *
      * @param head
      * @return

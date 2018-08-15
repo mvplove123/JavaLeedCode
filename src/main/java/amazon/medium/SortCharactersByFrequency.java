@@ -40,27 +40,27 @@ import java.util.PriorityQueue;
  * Explanation:
  * "bbaA" is also a valid answer, but "Aabb" is incorrect.
  * Note that 'A' and 'a' are treated as two different characters.
- * ½áºÏhashmap ºÍÓÅÏÈ¶ÓÁĞ£¨ÓÃÓÚÅÅĞò£©
+ * ç»“åˆhashmap å’Œä¼˜å…ˆé˜Ÿåˆ—ï¼ˆç”¨äºæ’åºï¼‰
  */
 public class SortCharactersByFrequency {
     public String frequencySort(String s) {
-        //±ß½çÅĞ¶Ï
+        //è¾¹ç•Œåˆ¤æ–­
         if (s == null || s.length() == 0) {
             return "";
         }
-        //´æÈë×Ö·û£¬hashmap key:×Ö·û£¬value:ÖØ¸´×Ö·û  abcb->(b,bb)
+        //å­˜å…¥å­—ç¬¦ï¼Œhashmap key:å­—ç¬¦ï¼Œvalue:é‡å¤å­—ç¬¦  abcb->(b,bb)
         HashMap<Character, StringBuilder> map = new HashMap<>();
         for (Character c : s.toCharArray()) {
             map.put(c, map.getOrDefault(c, new StringBuilder()).append(c));
         }
 
-        //°´ÕÕ³¤¶È¶¨ÒåÅÅĞò
+        //æŒ‰ç…§é•¿åº¦å®šä¹‰æ’åº
         PriorityQueue<StringBuilder> pq = new PriorityQueue<>((a, b) -> (b.length() - a.length()));
-        //°ÑËùÓĞvalue¼ÓÈë¶ÓÁĞÀï
+        //æŠŠæ‰€æœ‰valueåŠ å…¥é˜Ÿåˆ—é‡Œ
         pq.addAll(map.values());
 
         StringBuilder res = new StringBuilder();
-        //Ñ­»·¶ÓÁĞpoll³öÀ´
+        //å¾ªç¯é˜Ÿåˆ—pollå‡ºæ¥
         while (!pq.isEmpty()) {
             res.append(pq.poll());
         }
